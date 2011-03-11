@@ -1,5 +1,4 @@
-Elixir.tmbundle
----------------------
+# Elixir.tmbundle
 
 A **TextMate Bundle** for the [**Elixir**](http://github.com/josevalim/elixir) programming language.
 
