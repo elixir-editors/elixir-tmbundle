@@ -4,6 +4,19 @@
 <dict>
 	<key>name</key>
 	<string>Elixir</string>
+	<key>ordering</key>
+	<array>
+		<string>BC7C8178-FD4F-4F5F-9F5A-07FDC25FE899</string>
+		<string>D00C06B9-71B2-4FEB-A0E3-37237F579456</string>
+		<string>313112A0-FC40-4025-97AE-3E85DC0DB08F</string>
+		<string>868014EE-AC0F-48B6-AFCC-E4DA446E58C2</string>
+		<string>B7C61ED5-9215-4CF1-87BF-BBA4A656D41E</string>
+		<string>C7985E66-F271-48BD-A5A8-B4A7DA732593</string>
+		<string>6F931265-3CAA-4AAC-8A11-B49F8807E6D1</string>
+		<string>6CE083B3-2738-49C3-8B50-D7B27F759B10</string>
+		<string>0F4CBF04-F2F9-4B2C-B74A-E2F44AA7D6CF</string>
+		<string>9AE4B114-2F98-4FAC-9F3B-EFB6004B1422</string>
+	</array>
 	<key>uuid</key>
 	<string>E65BAFA0-39BA-458F-8D85-ECE6BF9EDF69</string>
 </dict>

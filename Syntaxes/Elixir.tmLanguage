@@ -16,7 +16,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	    (\s*+
 	        (module|object|def(?!.*\bend\s*$)
 	        |unless|if
-	        |case|receive
+	        |case|receive|when
 	        |try
 	        |for
 	         |^=begin
@@ -177,7 +177,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> as above, just doesn't need a 'end' and does a logic operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(and|not|or)\b</string>
+			<string>(?&lt;!\.)\b(and|not|andalso|orelse|or)\b</string>
 			<key>name</key>
 			<string>keyword.operator.logical.elixir</string>
 		</dict>
@@ -191,7 +191,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(true|false)\b(?![?!])</string>
+			<string>\b(true|nil|false)\b(?![?!])</string>
 			<key>name</key>
 			<string>constant.language.elixir</string>
 		</dict>
@@ -1082,7 +1082,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!')(')(?&gt;[a-zA-Z_][\w:]*(?&gt;[?!]|=(?![&gt;=]))?|\*\*?|[-+/]|&lt;-|\[\]|@[a-zA-Z_][\w]*)</string>
+			<string>(?&lt;!')(')(?&gt;[a-zA-Z_][\w:]*(?&gt;[?!]|=(?![&gt;=]))?|\*\*?|[-+/]|&lt;-|\$[0-9]+|\[\]|@[a-zA-Z_][\w]*)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
@@ -1690,7 +1690,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>&lt;=&gt;|&lt;(?!&lt;|=)|&gt;(?!&lt;|=|&gt;)|&lt;=|&gt;=|===|==|=~|!=|!~|(?&lt;=[ \t])\?</string>
+			<string>&lt;=&gt;|&lt;(?!&lt;|=)|&gt;(?!&lt;|=|&gt;)|&lt;=|&gt;=|=:=|:=|==|=~|!=|!~|(?&lt;=[ \t])\?</string>
 			<key>name</key>
 			<string>keyword.operator.comparison.elixir</string>
 		</dict>
