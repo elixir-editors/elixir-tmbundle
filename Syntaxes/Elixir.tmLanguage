@@ -8,6 +8,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	<key>fileTypes</key>
 	<array>
 		<string>ex</string>
+		<string>exs</string>
 	</array>
 	<key>firstLineMatch</key>
 	<string>^#!/.*\belixir</string>
