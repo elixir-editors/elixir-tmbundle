@@ -15,7 +15,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	<key>foldingStartMarker</key>
 	<string>(?x)^
 	    (\s*+
-	        (module|object|def(?!.*\bend\s*$)
+	        (module|def(?!.*\bend\s*$)
 	        |unless|if
 	        |case|receive|when
 	        |try
@@ -54,45 +54,6 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	<string>Elixir</string>
 	<key>patterns</key>
 	<array>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.object.elixir</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type.object.elixir</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.other.inherited-object.elixir</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.inheritance.elixir</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>variable.other.object.elixir</string>
-				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.elixir</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(object)\s+(([.a-zA-Z0-9_:]+(\s*(&lt;)\s*[.a-zA-Z0-9_:]+)?)|((&lt;&lt;)\s*[.a-zA-Z0-9_:]+))</string>
-			<key>name</key>
-			<string>meta.object.elixir</string>
-		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -154,7 +115,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>everything being a reserved word, not a value and needing a 'end' is a..</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(begin|case|receive|object|else|elsif|END|end|after|for|if|in|module|try|catch|then|unless|when|match)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(begin|case|receive|else|elsif|END|end|after|for|if|in|module|try|catch|then|unless|when|match)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -206,7 +167,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> everything being a method but having a special function is a..</string>
 			<key>match</key>
-			<string>\b(initialize|new|loop|include|extend|raise|attr_reader|attr_writer|attr_accessor|attr|catch|throw|private|module_function|public|protected|callbacks)\b(?![?!])</string>
+			<string>\b(initialize|loop|mixin|attr_reader|attr_writer|attr_accessor|catch|error|throw|exit|private|public|protected)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special-method.elixir</string>
 		</dict>
