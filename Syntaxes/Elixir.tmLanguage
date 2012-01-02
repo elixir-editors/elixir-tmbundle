@@ -15,28 +15,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	<key>foldingStartMarker</key>
 	<string>(?x)^
 	    (\s*+
-	        (module|def(?!.*\bend\s*$)
-	        |unless|if
-	        |case|receive|when
-	        |try
-	        |for
-	         |^=begin
-	        |(  "(\\.|[^"])*+"          # eat a double quoted string
-             | '(\\.|[^\\'])*+'      # eat a single quoted string
-	         |   [^%"']                # eat all but comments and strings
-	         )*
-	         (                        \s   (do|begin|case)
-	         | (?&lt;!\$)[-+=&amp;|*/%^&lt;&gt;] \s*+ (if|unless)
-	         )
-	        )\b
-	        (?! [^;]*+ ; .*? \bend\b )
-	    |(  "(\\.|[^"])*+"              # eat a double quoted string
-         | '(\\.|[^\\'])*+'      # eat a single quoted string
-	     |   [^%"']                    # eat all but comments and strings
-	     )*
-	     ( \{ (?!  [^}]*+ \} )
-	     | \[ (?! [^\]]*+ \] )
-	     )
+	        (do(?!.*\bend\s*$)
 	    ).*$
 	|   [#] .*? \(fold\) \s*+ $         # Sune’s special marker
 	</string>
@@ -46,7 +25,6 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		|   (^|;) \s*+ end \. .* $
 		|   ^     \s*+ [}\]] ,? \s*+ ([#].*)? $
 		|   [#] .*? \(end\) \s*+ $    # Sune’s special marker
-		|   ^=end
 		)</string>
 	<key>keyEquivalent</key>
 	<string>^~E</string>
@@ -67,55 +45,15 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 					<key>name</key>
 					<string>entity.name.type.module.elixir</string>
 				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>entity.other.inherited-object.module.first.elixir</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.inheritance.elixir</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>entity.other.inherited-object.module.second.elixir</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.inheritance.elixir</string>
-				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>entity.other.inherited-object.module.third.elixir</string>
-				</dict>
-				<key>8</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.inheritance.elixir</string>
-				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(module)\s+(([A-Z]\w*(::))?([A-Z]\w*(::))?([A-Z]\w*(::))*[A-Z]\w*)</string>
+			<string>^\s*(defmodule)\s+(([A-Z]\w*\s*(::)\s*)*[A-Z]\w*)</string>
 			<key>name</key>
 			<string>meta.module.elixir</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>else if is a common mistake carried over from other languages. it works if you put in a second end, but it’s never what you want.</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\belse(\s)+if\b</string>
-			<key>name</key>
-			<string>invalid.deprecated.elixir</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>everything being a reserved word, not a value and needing a 'end' is a..</string>
-			<key>match</key>
-			<string>(?&lt;!\.)\b(begin|case|receive|else|elsif|END|end|after|for|if|in|module|try|catch|then|unless|when|match)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(case|end|if|unless|try|loop|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -131,7 +69,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>contextual smart pair support</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b-&gt;\b\s*</string>
+			<string>(?&lt;=\{)(\s+)</string>
 			<key>name</key>
 			<string>meta.syntax.elixir.start-block</string>
 		</dict>
@@ -139,80 +77,29 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> as above, just doesn't need a 'end' and does a logic operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(and|not|andalso|orelse|or)\b</string>
+			<string>(?&lt;!\.)\b(and|not|or|andalso|orelse|xor|in)\b</string>
 			<key>name</key>
 			<string>keyword.operator.logical.elixir</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string> just as above but being not a logical operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(alias|alias_method|break|next|redo|retry|return|super|undef|yield)\b(?![?!])|\bdefined\?|\bblock_given\?</string>
-			<key>name</key>
-			<string>keyword.control.pseudo-method.elixir</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(true|nil|false)\b(?![?!])</string>
+			<string>\b(nil|true|false)\b(?![?!])</string>
 			<key>name</key>
 			<string>constant.language.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE)__|self)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string> everything being a method but having a special function is a..</string>
+			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(initialize|loop|mixin|attr_reader|attr_writer|attr_accessor|catch|error|throw|exit|private|public|protected)\b(?![?!])</string>
+			<string>\b(import|require|use|recur)\b(?![?!])</string>
 			<key>name</key>
-			<string>keyword.other.special-method.elixir</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.elixir</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(@)[a-zA-Z_]\w*</string>
-			<key>name</key>
-			<string>variable.other.readwrite.instance.elixir</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\b(ENV)\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>variable.other.constant.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\]</string>
-			<key>name</key>
-			<string>meta.environment-variable.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b[A-Z]\w*(?=((\.|::)[A-Za-z]|\[))</string>
-			<key>name</key>
-			<string>support.object.elixir</string>
+			<string>keyword.other.special.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -227,7 +114,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			         (?&lt;=^|\s)(def)\s+                                              # the def keyword
 			         ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                   # a method name prefix
 			           (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                              # the method name
-			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=~|[-+]@?|\[\]=?) )  # …or an operator method
+			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) )  # …or an operator method
 			         \s*(\()                                                        # the openning parenthesis for arguments
 			        </string>
 			<key>beginCaptures</key>
@@ -279,9 +166,9 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			         (?&lt;=^|\s)(def)\s+                                              # the def keyword
 			         ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                   # a method name prefix
 			           (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                              # the method name
-			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=~|[-+]@?|\[\]=?) )  # …or an operator method
+			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) )  # …or an operator method
 			         [ \t]                                                          # the space separating the arguments
-			         (?=[ \t]*[^\s%;])                                              # make sure arguments and not a comment follow
+			         (?=[ \t]*[^\s#;])                                              # make sure arguments and not a comment follow
 			        </string>
 			<key>beginCaptures</key>
 			<dict>
@@ -335,7 +222,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			         ( \s+                                                               # an optional group of whitespace followed by…
 			           ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                      # a method name prefix
 			             (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                                 # the method name
-			             |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=~|[-+]@?|\[\]=?) ) )?  # …or an operator method
+			             |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) ) )?  # …or an operator method
 			        </string>
 			<key>name</key>
 			<string>meta.function.method.without-arguments.elixir</string>
@@ -348,7 +235,34 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>'"</string>
+			<string>:'</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.constant.elixir</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>constant.other.symbol.single-quoted.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>:"</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
@@ -374,162 +288,16 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			</array>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\$"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
 			<key>comment</key>
-			<string>double quoted charlist (allows for interpolation)</string>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.charlist.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\$\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>double quoted charlist (allows for interpolation)</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.charlist.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\$\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>double quoted charlist (allows for interpolation)</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.charlist.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\$\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>double quoted charlist (allows for interpolation)</string>
-			<key>end</key>
-			<string>\}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.charlist.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
+			<string>Needs higher precidence than regular expressions.</string>
 			<key>match</key>
-			<string>\$\\?.</string>
+			<string>/=</string>
 			<key>name</key>
-			<string>constant.charlist.elixir</string>
+			<string>keyword.operator.assignment.augmented.elixir</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>~r\{</string>
+			<string>'</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -539,9 +307,9 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>regular expressions (literal)</string>
+			<string>single quoted string (allows for interpolation)</string>
 			<key>end</key>
-			<string>\}[uimxfr]*</string>
+			<string>'</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -551,155 +319,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~r\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\][uimxfr]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~r\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\)[uimxfr]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~r\"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\"[uimxfr]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[QALW]?\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation ()</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
+			<string>string.quoted.single.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -709,289 +329,6 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				<dict>
 					<key>include</key>
 					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[QALW]?\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation []</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[QALW]?\"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation ""</string>
-			<key>end</key>
-			<string>\"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[QALW]?\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation -- {}</string>
-			<key>end</key>
-			<string>\}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.elixir.mod</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[qalw]\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- ()</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\)|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[qalw]\"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- ""</string>
-			<key>end</key>
-			<string>\"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\&gt;|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[qalw]\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- []</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\]|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>~[qalw]\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- {}</string>
-			<key>end</key>
-			<string>\}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\}|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly</string>
 				</dict>
 			</array>
 		</dict>
@@ -1033,6 +370,817 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			</array>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>`</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allows for interpolation)</string>
+			<key>end</key>
+			<string>`</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%x\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allow for interpolation)</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%x\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allow for interpolation)</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%x\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allow for interpolation)</string>
+			<key>end</key>
+			<string>\&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%x\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allow for interpolation)</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%x([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>execute string (allow for interpolation)</string>
+			<key>end</key>
+			<string>\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\}[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\][eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\)[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\&gt;[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_r</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%r([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expressions (literal)</string>
+			<key>end</key>
+			<string>\1[eimnosux]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.regexp.mod-r.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[QWSR]?\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal capable of interpolation ()</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[QWSR]?\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal capable of interpolation []</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[QWSR]?\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal capable of interpolation &lt;&gt;</string>
+			<key>end</key>
+			<string>\&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[QWSR]?\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal capable of interpolation -- {}</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.elixir.mod</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal capable of interpolation -- wildcard</string>
+			<key>end</key>
+			<string>\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal incapable of interpolation -- ()</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.lower.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\)|\\\\</string>
+					<key>name</key>
+					<string>constant.character.escape.elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal incapable of interpolation -- &lt;&gt;</string>
+			<key>end</key>
+			<string>\&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.lower.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\&gt;|\\\\</string>
+					<key>name</key>
+					<string>constant.character.escape.elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal incapable of interpolation -- []</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.lower.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\]|\\\\</string>
+					<key>name</key>
+					<string>constant.character.escape.elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal incapable of interpolation -- {}</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.lower.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\}|\\\\</string>
+					<key>name</key>
+					<string>constant.character.escape.elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>literal incapable of interpolation -- wildcard</string>
+			<key>end</key>
+			<string>\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.lower.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>Cant be named because its not neccesarily an escape.</string>
+					<key>match</key>
+					<string>\\.</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -1044,27 +1192,25 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!')(')(?&gt;[a-zA-Z_][\w:]*(?&gt;[?!]|=(?![&gt;=]))?|\*\*?|[-+/]|&lt;-|\$[0-9]+|\[\]|@[a-zA-Z_][\w]*)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^=begin</string>
 			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.elixir</string>
+					<string>punctuation.definition.constant.elixir</string>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>multiline comments</string>
-			<key>end</key>
-			<string>^=end</string>
+			<string>symbols</string>
+			<key>match</key>
+			<string>(?&gt;[a-zA-Z_]\w*(?&gt;[?!])?)(:)(?!:)</string>
 			<key>name</key>
-			<string>comment.block.documentation.elixir</string>
+			<string>constant.other.symbol.elixir.19syntax</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -1076,7 +1222,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:^[ \t]+)?(%).*$\n?</string>
+			<string>(?:^[ \t]+)?(#).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.number-sign.elixir</string>
 		</dict>
@@ -1149,7 +1295,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)HTML)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)HTML)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1163,7 +1309,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.html.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1196,7 +1342,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)SQL)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)SQL)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1210,7 +1356,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.sql.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1243,7 +1389,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)CSS)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)CSS)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1257,7 +1403,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.css.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1290,7 +1436,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)CPP)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)CPP)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1304,7 +1450,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.c++.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1337,7 +1483,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)C)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)C)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1351,7 +1497,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.c.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1384,7 +1530,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)(?:JS|JAVASCRIPT))\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)(?:JS|JAVASCRIPT))\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1398,7 +1544,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.js.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1431,7 +1577,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)JQUERY)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)JQUERY)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1445,7 +1591,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.js.jquery.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1478,7 +1624,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)(?:SH|SHELL))\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)(?:SH|SHELL))\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1492,7 +1638,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>contentName</key>
 			<string>text.shell.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1525,7 +1671,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;~~((?:[_\w]+_|)RUBY)\b)</string>
+			<string>(?&gt;&lt;&lt;-("?)((?:[_\w]+_|)RUBY)\b\1)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1535,11 +1681,11 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>heredoc with embedded ruby and intented terminator</string>
+			<string>heredoc with embedded elixir and intented terminator</string>
 			<key>contentName</key>
-			<string>text.ruby.embedded.elixir</string>
+			<string>text.elixir.embedded.elixir</string>
 			<key>end</key>
-			<string>~~$</string>
+			<string>\s*\2$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1549,7 +1695,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.unquoted.embedded.ruby.elixir</string>
+			<string>string.unquoted.embedded.elixir.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1558,7 +1704,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>source.ruby</string>
+					<string>source.elixir</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1572,7 +1718,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&gt;\s*~~(\w*))</string>
+			<string>(?&gt;\=\s*&lt;&lt;(\w+))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1582,7 +1728,48 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>~~$</string>
+			<string>^\1$</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.unquoted.heredoc.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#heredoc</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?&gt;&lt;&lt;-(\w+))</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>heredoc with indented terminator</string>
+			<key>end</key>
+			<string>\s*\1$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1640,19 +1827,13 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>:</string>
-			<key>name</key>
-			<string>punctuation.separator.key-value</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>&lt;&lt;=|%=|&amp;=|\*=|\*\*=|\+=|\-=|\^=|\|{1,2}=|&lt;&lt;</string>
+			<string>%=|\*=|\*\*=|\+=|\-=|\^=|\|\|=|&lt;&lt;</string>
 			<key>name</key>
 			<string>keyword.operator.assignment.augmented.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>&lt;=&gt;|&lt;(?!&lt;|=)|&gt;(?!&lt;|=|&gt;)|&lt;=|&gt;=|=:=|:=|==|=~|!=|!~|(?&lt;=[ \t])\?</string>
+			<string>&lt;=&gt;|&lt;(?!&lt;|=)|&gt;(?!&lt;|=|&gt;)|&lt;=|&gt;=|===|==|=~|!=|!~|(?&lt;=[ \t])\?</string>
 			<key>name</key>
 			<string>keyword.operator.comparison.elixir</string>
 		</dict>
@@ -1676,7 +1857,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\||&gt;&gt;</string>
+			<string>\||~|&gt;&gt;</string>
 			<key>name</key>
 			<string>keyword.operator.other.elixir</string>
 		</dict>
@@ -1735,7 +1916,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		<key>heredoc</key>
 		<dict>
 			<key>begin</key>
-			<string>^~~\w+</string>
+			<string>^&lt;&lt;-?\w+</string>
 			<key>end</key>
 			<string>$</string>
 			<key>patterns</key>
@@ -1809,6 +1990,34 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 					<string>(#@)[a-zA-Z_]\w*</string>
 					<key>name</key>
 					<string>variable.other.readwrite.instance.elixir</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.elixir</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#@@)[a-zA-Z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.readwrite.class.elixir</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.elixir</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#\$)[a-zA-Z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.readwrite.global.elixir</string>
 				</dict>
 			</array>
 		</dict>
@@ -2194,13 +2403,13 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.character-object.elixir</string>
+							<string>punctuation.definition.character-class.elixir</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\]</string>
 					<key>name</key>
-					<string>string.regexp.character-object.elixir</string>
+					<string>string.regexp.character-class.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>

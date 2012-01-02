@@ -9,16 +9,13 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*([}\]]\s*$|(end|catch|after|else|elsif|match)\b)</string>
+		<string>^\s*([}\]]\s*$|(end|after|else|elsif|match)\b)</string>
 		<key>increaseIndentPattern</key>
 		<string>(?x)^
     (\s*
-        (module|def
-        |unless|if|else|elsif
-        |case|match|receive
-        |begin|rescue|after
-        |for
-        |(?= .*? \b(do|begin|case|if|unless)\b )
+        (else|elsif
+        |match|after
+        |(?= .*? \b(do)\b )
          # the look-ahead above is to quickly discard non-candidates
          (  "(\\.|[^\\"])*+"        # eat a double quoted string
          | '(\\.|[^\\'])*+'      # eat a single quoted string
@@ -37,29 +34,6 @@
      | \[ (?! [^\]]*+ \] )
      )
     ).*$</string>
-		<key>smartTypingPairs</key>
-		<array>
-			<array>
-				<string>"</string>
-				<string>"</string>
-			</array>
-			<array>
-				<string>(</string>
-				<string>)</string>
-			</array>
-			<array>
-				<string>{</string>
-				<string>}</string>
-			</array>
-			<array>
-				<string>[</string>
-				<string>]</string>
-			</array>
-			<array>
-				<string>&lt;&lt;</string>
-				<string>&gt;&gt;</string>
-			</array>
-		</array>
 	</dict>
 	<key>uuid</key>
 	<string>313112A0-FC40-4025-97AE-3E85DC0DB08F</string>
