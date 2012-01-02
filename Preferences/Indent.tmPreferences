@@ -15,7 +15,7 @@
     (\s*
         (else|elsif
         |match|after
-        |(?= .*? \b(do)\b )
+        |(?= .*? \b(do([^:]|$))\b )
          # the look-ahead above is to quickly discard non-candidates
          (  "(\\.|[^\\"])*+"        # eat a double quoted string
          | '(\\.|[^\\'])*+'      # eat a single quoted string
