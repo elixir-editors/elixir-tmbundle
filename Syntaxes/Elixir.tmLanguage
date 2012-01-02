@@ -53,7 +53,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(case|end|if|unless|try|loop|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(case|end|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -97,7 +97,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(import|require|use|recur)\b(?![?!])</string>
+			<string>\b(import|require|use|recur|quote|unquote)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special.elixir</string>
 		</dict>
