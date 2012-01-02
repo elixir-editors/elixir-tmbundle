@@ -77,7 +77,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> as above, just doesn't need a 'end' and does a logic operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(and|not|or|andalso|orelse|xor|in)\b</string>
+			<string>(?&lt;!\.)\b(and|not|or|andalso|when|orelse|xor|in)\b</string>
 			<key>name</key>
 			<string>keyword.operator.logical.elixir</string>
 		</dict>
@@ -1192,7 +1192,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|&amp;&amp;?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
