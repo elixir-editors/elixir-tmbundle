@@ -89,7 +89,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
@@ -97,7 +97,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(import|require|use|recur|quote|unquote)\b(?![?!])</string>
+			<string>\b(import|require|refer|use|recur|quote|unquote)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special.elixir</string>
 		</dict>
