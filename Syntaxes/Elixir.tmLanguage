@@ -168,14 +168,6 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			</array>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Needs higher precidence than regular expressions.</string>
-			<key>match</key>
-			<string>/=</string>
-			<key>name</key>
-			<string>keyword.operator.assignment.augmented.elixir</string>
-		</dict>
-		<dict>
 			<key>begin</key>
 			<string>'</string>
 			<key>beginCaptures</key>
@@ -199,7 +191,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.single.elixir</string>
+			<string>support.function.variable.quoted.single.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
