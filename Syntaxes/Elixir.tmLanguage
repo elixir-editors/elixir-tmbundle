@@ -53,7 +53,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(case|end|for|bitfor|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(case|end|for|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro|defdelegate)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -89,9 +89,23 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR|OP|REF|BLOCK|KVBLOCK)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.variable.ruby</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(@)[a-zA-Z_]\w*</string>
+			<key>name</key>
+			<string>variable.other.readwrite.instance.ruby</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -1848,48 +1862,6 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 							<string>$self</string>
 						</dict>
 					</array>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.variable.elixir</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(#@)[a-zA-Z_]\w*</string>
-					<key>name</key>
-					<string>variable.other.readwrite.instance.elixir</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.variable.elixir</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(#@@)[a-zA-Z_]\w*</string>
-					<key>name</key>
-					<string>variable.other.readwrite.class.elixir</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.variable.elixir</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(#\$)[a-zA-Z_]\w*</string>
-					<key>name</key>
-					<string>variable.other.readwrite.global.elixir</string>
 				</dict>
 			</array>
 		</dict>
