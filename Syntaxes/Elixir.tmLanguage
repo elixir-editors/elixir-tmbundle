@@ -15,7 +15,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 	<key>foldingStartMarker</key>
 	<string>(?x)^
 	    (\s*+
-	        (do(?!.*\bend\s*$)
+	        ((do|\-\&gt;)(?!.*\bend\s*$)
 	    ).*$
 	|   [#] .*? \(fold\) \s*+ $         # Sune’s special marker
 	</string>
@@ -53,7 +53,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(case|end|for|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro|defdelegate)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(case|end|for|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro|defdelegate|defexception|error|exit|raise|throw)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -61,17 +61,9 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>contextual smart pair support for block parameters</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\bdo\b\s*</string>
+			<string>(?&lt;!\.)\b(do|\-\&gt;)\b\s*</string>
 			<key>name</key>
 			<string>keyword.control.start-block.elixir</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>contextual smart pair support</string>
-			<key>match</key>
-			<string>(?&lt;=\{)(\s+)</string>
-			<key>name</key>
-			<string>meta.syntax.elixir.start-block</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -89,7 +81,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR|OP|REF|BLOCK|KVBLOCK)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR|EXCEPTION|OP|REF|BLOCK|KVBLOCK)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
@@ -99,19 +91,47 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.variable.ruby</string>
+					<string>punctuation.definition.variable.elixir</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(@)[a-zA-Z_]\w*</string>
 			<key>name</key>
-			<string>variable.other.readwrite.instance.ruby</string>
+			<string>variable.other.readwrite.module.elixir</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.variable.elixir</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(@)[a-zA-Z_]\w*</string>
+			<key>name</key>
+			<string>variable.other.readwrite.module.elixir</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.variable.elixir</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(&amp;)\d?</string>
+			<key>name</key>
+			<string>variable.other.anonymouselixir</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(import|require|refer|use|recur|quote|unquote)\b(?![?!])</string>
+			<string>\b(import|require|use|recur|quote|unquote)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special.elixir</string>
 		</dict>
@@ -676,7 +696,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[QWSR]?\(</string>
+			<string>%[QWSR]\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -717,7 +737,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[QWSR]?\[</string>
+			<string>%[QWSR]\[</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -758,7 +778,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[QWSR]?\&lt;</string>
+			<string>%[QWSR]\&lt;</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -799,7 +819,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[QWSR]?\{</string>
+			<string>%[QWSR]\{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1078,7 +1098,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|&amp;&amp;?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
@@ -1713,7 +1733,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>%=|\*=|\*\*=|\+=|\-=|\^=|\|\|=|&lt;&lt;</string>
+			<string>%=|\*=|\*\*=|\+=|\-=|\^=|\|\|=</string>
 			<key>name</key>
 			<string>keyword.operator.assignment.augmented.elixir</string>
 		</dict>
@@ -1731,7 +1751,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(%|&amp;|\*\*|\*|\+|\-|/)</string>
+			<string>(\*|\+|\-|/)</string>
 			<key>name</key>
 			<string>keyword.operator.arithmetic.elixir</string>
 		</dict>
@@ -1743,7 +1763,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\||~|&gt;&gt;</string>
+			<string>\||\+\+|\-\-|\*\*|\/\/|\&lt;\-|\&lt;\&gt;|&lt;&lt;|&gt;&gt;</string>
 			<key>name</key>
 			<string>keyword.operator.other.elixir</string>
 		</dict>
@@ -1767,7 +1787,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\.|::</string>
+			<string>\.</string>
 			<key>name</key>
 			<string>punctuation.separator.method.elixir</string>
 		</dict>
@@ -1802,7 +1822,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		<key>heredoc</key>
 		<dict>
 			<key>begin</key>
-			<string>^&lt;&lt;-?\w+</string>
+			<string>^&lt;&lt;&lt;-?\w+</string>
 			<key>end</key>
 			<string>$</string>
 			<key>patterns</key>

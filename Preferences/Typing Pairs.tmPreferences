@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Typing Pairs</string>
 	<key>scope</key>
-	<string>keyword.control.start-block.elixir, meta.syntax.ruby.start-elixir</string>
+	<string>keyword.control.start-block.elixir, meta.syntax.elixir.start-elixir</string>
 	<key>settings</key>
 	<dict>
 		<key>smartTypingPairs</key>

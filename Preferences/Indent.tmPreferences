@@ -15,14 +15,13 @@
     (\s*
         (else|elsif
         |match|after
-        |(?= .*? \b(do([^:]|$))\b )
+        |(?= .*? \b((do|\-\&gt;)([^:]|$))\b )
          # the look-ahead above is to quickly discard non-candidates
          (  "(\\.|[^\\"])*+"        # eat a double quoted string
          | '(\\.|[^\\'])*+'      # eat a single quoted string
          |   [^#"']                # eat all but comments and strings
          )*
-         (                         \s   (do|begin|case)
-         | [-+=&amp;|*/~%^&lt;&gt;~](?&lt;!\$.) \s*+ (if|unless)
+         (                         \s   (do|\-\&gt;)
          )
         )\b
         (?! [^;]*+ ; .*? \bend\b )
