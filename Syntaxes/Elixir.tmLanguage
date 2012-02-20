@@ -213,9 +213,9 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>heredoc with indented terminator</string>
+			<string>Single-quoted heredocs</string>
 			<key>end</key>
-			<string>\s*'''$</string>
+			<string>^\s*'''$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -287,9 +287,9 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>heredoc with indented terminator</string>
+			<string>Double-quoted heredocs</string>
 			<key>end</key>
-			<string>\s*"""$</string>
+			<string>^\s*"""$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
