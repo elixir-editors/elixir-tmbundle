@@ -52,6 +52,56 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 			<string>meta.module.elixir</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>@(module)?doc """</string>
+			<key>comment</key>
+			<string>@doc with heredocs is treated as documentation</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>comment.documentation.heredoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>@doc false is treated as documentation</string>
+			<key>match</key>
+			<string>@(module)?doc false</string>
+			<key>name</key>
+			<string>comment.documentation.false</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>@(module)?doc "</string>
+			<key>comment</key>
+			<string>@doc with string is treated as documentation</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>comment.documentation.string</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>(?&lt;!\.)\b(case|end|for|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro|defdelegate|defexception|defforward|exit|raise|throw)\b(?![?!])</string>
 			<key>name</key>
