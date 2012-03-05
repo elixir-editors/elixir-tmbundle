@@ -7,5 +7,6 @@ Installation:
     mkdir -p ~/Library/Application\ Support/TextMate/Bundles
     cd ~/Library/Application\ Support/TextMate/Bundles
     git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
+    osascript -e 'tell app "TextMate" to reload bundles'
 
 The bundle is still in development and includes syntax highlighting. Contributions and extensions are welcome!
