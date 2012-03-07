@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Textmate bundle for Elixir Programming Language.
-This bundle was based on the Ruby bundle by James Edward Gray II and there is a lot of room for improvements.</string>
+	<string>Textmate bundle for Elixir Programming Language.</string>
 	<key>fileTypes</key>
 	<array>
 		<string>ex</string>
@@ -131,7 +130,7 @@ This bundle was based on the Ruby bundle by James Edward Gray II and there is a 
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|STOP_ITERATOR|EXCEPTION|OP|REF|FUNCTION|BLOCK|KVBLOCK)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|LOCAL|FUNCTION)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
