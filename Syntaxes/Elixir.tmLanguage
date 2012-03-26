@@ -46,13 +46,13 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(defmodule)\s+(([A-Z]\w*\s*(::)\s*)*[A-Z]\w*)</string>
+			<string>^\s*(defmodule)\s+(([A-Z]\w*\s*(\.)\s*)*[A-Z]\w*)</string>
 			<key>name</key>
 			<string>meta.module.elixir</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module)?doc """</string>
+			<string>@(module)?doc (%[a-z])?"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
@@ -70,6 +70,16 @@
 					<string>#escaped_char</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>@(module)?doc %[A-B]"""</string>
+			<key>comment</key>
+			<string>@doc with heredocs is treated as documentation</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>comment.documentation.heredoc</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -130,7 +140,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|LOCAL|FUNCTION)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|LOCAL|MAIN|FUNCTION)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
@@ -180,7 +190,7 @@
 			<key>comment</key>
 			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(import|require|use|recur|quote|unquote|super)\b(?![?!])</string>
+			<string>\b(import|require|refer|use|recur|quote|unquote|super)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special.elixir</string>
 		</dict>
@@ -400,7 +410,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>`</string>
+			<string>%[a-z](?&gt;""")</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -410,9 +420,9 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>execute string (allows for interpolation)</string>
+			<string>Double-quoted heredocs sigils</string>
 			<key>end</key>
-			<string>`</string>
+			<string>^\s*"""$</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -422,716 +432,12 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.interpolated.elixir</string>
+			<string>string.quoted.double.heredoc.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
 					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%x\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>execute string (allow for interpolation)</string>
-			<key>end</key>
-			<string>\}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.interpolated.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%x\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>execute string (allow for interpolation)</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.interpolated.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%x\&lt;</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>execute string (allow for interpolation)</string>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.interpolated.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%x\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>execute string (allow for interpolation)</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.interpolated.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%x([^\w])</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>execute string (allow for interpolation)</string>
-			<key>end</key>
-			<string>\1</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.interpolated.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%r\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\}[eimnosux]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%r\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\][eimnosux]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%r\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\)[eimnosux]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%r\&lt;</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\&gt;[eimnosux]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_r</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%r([^\w])</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>regular expressions (literal)</string>
-			<key>end</key>
-			<string>\1[eimnosux]*</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.regexp.mod-r.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[QWSR]\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation ()</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[QWSR]\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation []</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[QWSR]\&lt;</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation &lt;&gt;</string>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[QWSR]\{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation -- {}</string>
-			<key>end</key>
-			<string>\}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.elixir.mod</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_i</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[A-Z]([^\w])</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal capable of interpolation -- wildcard</string>
-			<key>end</key>
-			<string>\1</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[a-z]\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- ()</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\)|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[a-z]\&lt;</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- &lt;&gt;</string>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\&gt;|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>%[a-z]\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>literal incapable of interpolation -- []</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.elixir</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\\]|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -1147,7 +453,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>literal incapable of interpolation -- {}</string>
+			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
 			<string>\}</string>
 			<key>endCaptures</key>
@@ -1159,18 +465,127 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
+			<string>string.interpolated.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>\\\}|\\\\</string>
-					<key>name</key>
-					<string>constant.character.escape.elixir</string>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#nest_curly</string>
+					<string>#nest_curly_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (allow for interpolation)</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (allow for interpolation)</string>
+			<key>end</key>
+			<string>\&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[a-z]\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (allow for interpolation)</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.interpolated.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_i</string>
 				</dict>
 			</array>
 		</dict>
@@ -1186,7 +601,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>literal incapable of interpolation -- wildcard</string>
+			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
 			<string>\1</string>
 			<key>endCaptures</key>
@@ -1198,14 +613,203 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.other.literal.lower.elixir</string>
+			<string>string.interpolated.elixir</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>comment</key>
-					<string>Cant be named because its not neccesarily an escape.</string>
-					<key>match</key>
-					<string>\\.</string>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z](?&gt;""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Double-quoted heredocs sigils</string>
+			<key>end</key>
+			<string>^\s*"""$</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]\{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (without interpolation)</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (without interpolation)</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]\&lt;</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (without interpolation)</string>
+			<key>end</key>
+			<string>\&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]\(</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (without interpolation)</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens_i</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>%[A-Z]([^\w])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.elixir</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>sigil (without interpolation)</string>
+			<key>end</key>
+			<string>\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.literal.upper.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
 				</dict>
 			</array>
 		</dict>
@@ -1221,7 +825,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|\&lt;\&lt;\&gt;\&gt;|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
