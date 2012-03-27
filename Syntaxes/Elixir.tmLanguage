@@ -455,7 +455,7 @@
 			<key>comment</key>
 			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
-			<string>\}</string>
+			<string>\}[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -492,7 +492,7 @@
 			<key>comment</key>
 			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
-			<string>\]</string>
+			<string>\][a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -529,7 +529,7 @@
 			<key>comment</key>
 			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
-			<string>\&gt;</string>
+			<string>\&gt;[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -566,7 +566,7 @@
 			<key>comment</key>
 			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
-			<string>\)</string>
+			<string>\)[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -603,7 +603,7 @@
 			<key>comment</key>
 			<string>sigil (allow for interpolation)</string>
 			<key>end</key>
-			<string>\1</string>
+			<string>\1[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -662,7 +662,7 @@
 			<key>comment</key>
 			<string>sigil (without interpolation)</string>
 			<key>end</key>
-			<string>\}</string>
+			<string>\}[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -695,7 +695,7 @@
 			<key>comment</key>
 			<string>sigil (without interpolation)</string>
 			<key>end</key>
-			<string>\]</string>
+			<string>\][a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -728,7 +728,7 @@
 			<key>comment</key>
 			<string>sigil (without interpolation)</string>
 			<key>end</key>
-			<string>\&gt;</string>
+			<string>\&gt;[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -761,7 +761,7 @@
 			<key>comment</key>
 			<string>sigil (without interpolation)</string>
 			<key>end</key>
-			<string>\)</string>
+			<string>\)[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -794,7 +794,7 @@
 			<key>comment</key>
 			<string>sigil (without interpolation)</string>
 			<key>end</key>
-			<string>\1</string>
+			<string>\1[a-z]*</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
