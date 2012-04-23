@@ -112,7 +112,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(case|end|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp|def|defprotocol|defimpl|defrecord|defmacro|defdelegate|defexception|exit|raise|throw)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(case|end|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defexception|exit|raise|throw)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -140,7 +140,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|LOCAL|MAIN|FUNCTION)__)\b(?![?!])</string>
+			<string>\b(__(FILE|LINE|MODULE|MAIN|FUNCTION)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
