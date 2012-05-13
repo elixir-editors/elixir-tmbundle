@@ -9,30 +9,9 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*([}\]]\s*$|(end|after|else|elsif|match)\b)</string>
+		<string>^\s*((\}|\]|after|else|catch|rescue)\s*$|end\b)</string>
 		<key>increaseIndentPattern</key>
-		<string>(?x)^
-    (\s*
-        (else|elsif
-        |match|after
-        |(?= .*? \b((do|\-\&gt;)([^:]|$))\b )
-         # the look-ahead above is to quickly discard non-candidates
-         (  "(\\.|[^\\"])*+"        # eat a double quoted string
-         | '(\\.|[^\\'])*+'      # eat a single quoted string
-         |   [^#"']                # eat all but comments and strings
-         )*
-         (                         \s   (do|\-\&gt;)
-         )
-        )\b
-        (?! [^;]*+ ; .*? \bend\b )
-    |(  "(\\.|[^\\"])*+"            # eat a double quoted string
-     | '(\\.|[^\\'])*+'          # eat a single quoted string
-     |   [^#"']                    # eat all but comments and strings
-     )*
-     ( \{ (?!  [^}]*+ \} )
-     | \[ (?! [^\]]*+ \] )
-     )
-    ).*$</string>
+		<string>(after|else|catch|rescue|\-\&gt;|\{|\[|do)\s*$</string>
 	</dict>
 	<key>uuid</key>
 	<string>313112A0-FC40-4025-97AE-3E85DC0DB08F</string>

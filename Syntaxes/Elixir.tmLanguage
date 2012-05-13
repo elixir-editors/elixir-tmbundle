@@ -12,19 +12,9 @@
 	<key>firstLineMatch</key>
 	<string>^#!/.*\belixir</string>
 	<key>foldingStartMarker</key>
-	<string>(?x)^
-	    (\s*+
-	        ((do|\-\&gt;)(?!.*\bend\s*$)
-	    ).*$
-	|   [#] .*? \(fold\) \s*+ $         # Sune’s special marker
-	</string>
+	<string>(after|else|catch|rescue|\-\&gt;|\{|\[|do)\s*$</string>
 	<key>foldingStopMarker</key>
-	<string>(?x)
-		(   (^|;) \s*+ end   \s*+ ([#].*)? $
-		|   (^|;) \s*+ end \. .* $
-		|   ^     \s*+ [}\]] ,? \s*+ ([#].*)? $
-		|   [#] .*? \(end\) \s*+ $    # Sune’s special marker
-		)</string>
+	<string>^\s*((\}|\]|after|else|catch|rescue)\s*$|end\b)</string>
 	<key>keyEquivalent</key>
 	<string>^~E</string>
 	<key>name</key>
@@ -112,17 +102,9 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(case|end|bc|lc|if|unless|try|loop|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defexception|exit|raise|throw)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(do|end|case|bc|lc|if|cond|unless|try|loop|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>contextual smart pair support for block parameters</string>
-			<key>match</key>
-			<string>(?&lt;!\.)\b(do|\-\&gt;)\b\s*</string>
-			<key>name</key>
-			<string>keyword.control.start-block.elixir</string>
 		</dict>
 		<dict>
 			<key>comment</key>
