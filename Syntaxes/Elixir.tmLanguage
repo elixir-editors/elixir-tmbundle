@@ -46,7 +46,7 @@
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>\s*"""$</string>
 			<key>name</key>
 			<string>comment.documentation.heredoc</string>
 			<key>patterns</key>
@@ -67,7 +67,7 @@
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>\s*"""$</string>
 			<key>name</key>
 			<string>comment.documentation.heredoc</string>
 		</dict>
@@ -110,7 +110,7 @@
 			<key>comment</key>
 			<string> as above, just doesn't need a 'end' and does a logic operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(and|not|or|when|xor|in)\b</string>
+			<string>(?&lt;!\.)\b(and|not|or|when|xor|in|inlist|inbits)\b</string>
 			<key>name</key>
 			<string>keyword.operator.logical.elixir</string>
 		</dict>
@@ -122,7 +122,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE|MODULE|MAIN|FUNCTION)__)\b(?![?!])</string>
+			<string>\b(__(FILE|CALLER|ENV|MODULE|MAIN)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
@@ -172,7 +172,7 @@
 			<key>comment</key>
 			<string> everything being a special function is a..</string>
 			<key>match</key>
-			<string>\b(import|require|refer|use|recur|quote|unquote|super)\b(?![?!])</string>
+			<string>\b(import|require|alias|use|recur|quote|unquote|super)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.other.special.elixir</string>
 		</dict>
