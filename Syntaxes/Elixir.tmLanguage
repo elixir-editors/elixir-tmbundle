@@ -807,7 +807,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|\&lt;\&lt;\&gt;\&gt;|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|\&lt;\&lt;\&gt;\&gt;|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|\.|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
