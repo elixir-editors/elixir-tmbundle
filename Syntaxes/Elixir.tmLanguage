@@ -807,7 +807,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|\&lt;\&lt;\&gt;\&gt;|&gt;=?|&lt;=?|&lt;=&gt;|&amp;&amp;?|%\(\)|%\[\]|%\{\}|\+\+?|\-\-?|\|\|?|\!|\.|//|[%&amp;`/\|]|\*\*?|=?~|&lt;\-)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\^(\^\^)?|~~~|\.\.?|::|//?|\*\*?|=|&lt;\-|/&gt;)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
@@ -939,19 +939,25 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>%=|\*=|\*\*=|\+=|\-=|\^=|\|\|=</string>
+			<string>\+=|\-=|\|\|=</string>
 			<key>name</key>
 			<string>keyword.operator.assignment.augmented.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>&lt;=&gt;|&lt;(?!&lt;|=)|&gt;(?!&lt;|=|&gt;)|&lt;=|&gt;=|===|==|=~|!=|!~|(?&lt;=[ \t])\?</string>
+			<string>===?|!==?|&lt;=?|&gt;=?</string>
 			<key>name</key>
 			<string>keyword.operator.comparison.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[ \t])!+|\bnot\b|&amp;&amp;|\band\b|\|\||\bor\b|\^</string>
+			<string>(\|\|\||&amp;&amp;&amp;|^^^|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~)</string>
+			<key>name</key>
+			<string>keyword.operator.bitwise.elixir</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=[ \t])!+|\bnot\b|&amp;&amp;|\band\b|\|\||\bor\b|\bxor\b</string>
 			<key>name</key>
 			<string>keyword.operator.logical.elixir</string>
 		</dict>
@@ -963,15 +969,15 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>=</string>
+			<string>\||\+\+|\-\-|\*\*|\/\/|\&lt;\-|\&lt;\&gt;|\&lt;\&lt;|\&gt;\&gt;|\:\:|\.\.</string>
 			<key>name</key>
-			<string>keyword.operator.assignment.elixir</string>
+			<string>keyword.operator.other.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\||\+\+|\-\-|\*\*|\/\/|\&lt;\-|\&lt;\&gt;|&lt;&lt;|&gt;&gt;</string>
+			<string>=</string>
 			<key>name</key>
-			<string>keyword.operator.other.elixir</string>
+			<string>keyword.operator.assignment.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
