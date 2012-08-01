@@ -150,20 +150,6 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@)[a-zA-Z_]\w*</string>
-			<key>name</key>
-			<string>variable.other.readwrite.module.elixir</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.elixir</string>
-				</dict>
-			</dict>
-			<key>match</key>
 			<string>(&amp;)\d</string>
 			<key>name</key>
 			<string>variable.other.anonymous.elixir</string>
@@ -807,7 +793,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|/&gt;|=~?|//?|\*\*?|\.\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\^(\^\^)?)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|/&gt;|=~?|//?|\*\*?|\.\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\^(\^\^)?)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
@@ -823,7 +809,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&gt;[a-zA-Z_]\w*(?&gt;[?!])?)(:)(?!:)</string>
+			<string>(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!])?)(:)(?!:)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir.19syntax</string>
 		</dict>

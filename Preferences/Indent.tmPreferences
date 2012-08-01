@@ -9,7 +9,7 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*((\}|\]|after|else|catch|rescue)\s*$|end\b)</string>
+		<string>^\s*((\}|\])\s*$|(after|else|catch|rescue|end)\b)</string>
 		<key>increaseIndentPattern</key>
 		<string>(after|else|catch|rescue|\-\&gt;|\{|\[|do)\s*$</string>
 	</dict>
