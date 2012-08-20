@@ -1,0 +1,7 @@
+{
+	"cmd": ["elixir", "$file"],
+	"selector": "source.elixir",
+	"windows": {
+		"cmd": ["elixir.bat", "$file"]
+	}
+}
