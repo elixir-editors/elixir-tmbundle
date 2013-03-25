@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>content</key>
+    <string>IO.puts Macro.to_binary Macro.expand($1, __ENV__)  </string>
+    <key>name</key>
+    <string>IOmacro</string>
+    <key>scope</key>
+    <string>source.elixir</string>
+    <key>tabTrigger</key>
+    <string>IOmacro</string>
+    <key>uuid</key>
+    <string>79481DC6-D14E-4FFD-B4AC-1880139049B4</string>
+</dict>
+</plist>
