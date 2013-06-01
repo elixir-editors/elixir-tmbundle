@@ -102,7 +102,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(do|end|case|bc|lc|if|cond|unless|try|loop|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(do|end|case|bc|lc|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
