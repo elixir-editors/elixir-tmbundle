@@ -588,6 +588,10 @@
 					<key>include</key>
 					<string>#interpolated_elixir</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -773,13 +777,6 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>captures</key>
