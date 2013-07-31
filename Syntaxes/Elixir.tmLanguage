@@ -150,7 +150,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(&amp;)\d</string>
+			<string>(&amp;)\d*</string>
 			<key>name</key>
 			<string>variable.other.anonymous.elixir</string>
 		</dict>
