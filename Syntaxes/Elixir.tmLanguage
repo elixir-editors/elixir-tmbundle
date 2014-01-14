@@ -42,11 +42,11 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module)?doc (%[a-z])?"""</string>
+			<string>@(module|type)?doc (%[a-z])?"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
-			<string>\s*"""$</string>
+			<string>\s*"""</string>
 			<key>name</key>
 			<string>comment.documentation.heredoc</string>
 			<key>patterns</key>
@@ -63,11 +63,11 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module)?doc %[A-B]"""</string>
+			<string>@(module|type)?doc %[A-Z]"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
-			<string>\s*"""$</string>
+			<string>\s*"""</string>
 			<key>name</key>
 			<string>comment.documentation.heredoc</string>
 		</dict>
@@ -75,13 +75,13 @@
 			<key>comment</key>
 			<string>@doc false is treated as documentation</string>
 			<key>match</key>
-			<string>@(module)?doc false</string>
+			<string>@(module|type)?doc false</string>
 			<key>name</key>
 			<string>comment.documentation.false</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module)?doc "</string>
+			<string>@(module|type)?doc "</string>
 			<key>comment</key>
 			<string>@doc with string is treated as documentation</string>
 			<key>end</key>
@@ -102,7 +102,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(do|end|case|bc|lc|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -242,7 +242,7 @@
 			<key>comment</key>
 			<string>Single-quoted heredocs</string>
 			<key>end</key>
-			<string>^\s*'''$</string>
+			<string>^\s*'''</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -316,7 +316,7 @@
 			<key>comment</key>
 			<string>Double-quoted heredocs</string>
 			<key>end</key>
-			<string>^\s*"""$</string>
+			<string>^\s*"""</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -390,7 +390,7 @@
 			<key>comment</key>
 			<string>Double-quoted heredocs sigils</string>
 			<key>end</key>
-			<string>^\s*"""$</string>
+			<string>^\s*"""</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -608,7 +608,7 @@
 			<key>comment</key>
 			<string>Double-quoted heredocs sigils</string>
 			<key>end</key>
-			<string>^\s*"""$</string>
+			<string>^\s*"""</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
