@@ -102,7 +102,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defmacrop?|defdelegate|defcallback|defexception|exit|after|rescue|catch|else|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
@@ -112,7 +112,7 @@
 			<key>match</key>
 			<string>(?&lt;!\.)\b(and|not|or|when|xor|in|inlist|inbits)\b</string>
 			<key>name</key>
-			<string>keyword.operator.logical.elixir</string>
+			<string>keyword.operator.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -122,7 +122,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|CALLER|ENV|MODULE|DIR)__)\b(?![?!])</string>
+			<string>\b(__(CALLER|ENV|MODULE|DIR)__)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.elixir</string>
 		</dict>
@@ -155,18 +155,24 @@
 			<string>variable.other.anonymous.elixir</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string> everything being a special function is a..</string>
-			<key>match</key>
-			<string>\b(import|require|alias|use|quote|unquote|super)\b(?![?!])</string>
-			<key>name</key>
-			<string>keyword.other.special.elixir</string>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>\b[A-Z]\w*\b</string>
 			<key>name</key>
 			<string>variable.other.constant.elixir</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.constant.elixir</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(%)\[</string>
+			<key>name</key>
+			<string>sigil.other.constant.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -407,6 +413,10 @@
 					<key>include</key>
 					<string>#interpolated_elixir</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -442,7 +452,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#nest_curly_i</string>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_curly</string>
 				</dict>
 			</array>
 		</dict>
@@ -479,7 +493,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#nest_brackets_i</string>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -516,7 +534,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#nest_ltgt_i</string>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_ltgt</string>
 				</dict>
 			</array>
 		</dict>
@@ -553,7 +575,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#nest_parens_i</string>
+					<string>#escaped_char</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nest_parens</string>
 				</dict>
 			</array>
 		</dict>
@@ -587,6 +613,10 @@
 				<dict>
 					<key>include</key>
 					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -649,7 +679,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#nest_curly_i</string>
+					<string>#nest_curly</string>
 				</dict>
 			</array>
 		</dict>
@@ -682,7 +712,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#nest_brackets_i</string>
+					<string>#nest_brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -715,7 +745,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#nest_ltgt_i</string>
+					<string>#nest_ltgt</string>
 				</dict>
 			</array>
 		</dict>
@@ -748,7 +778,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#nest_parens_i</string>
+					<string>#nest_parens</string>
 				</dict>
 			</array>
 		</dict>
@@ -808,7 +838,7 @@
 			<key>match</key>
 			<string>(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!])?)(:)(?!:)</string>
 			<key>name</key>
-			<string>constant.other.symbol.elixir.19syntax</string>
+			<string>constant.other.keywords.elixir</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -854,42 +884,6 @@
 			<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b|0[0-7]{0,2}(?![0-7])\b|[^x0MC])|(\\[MC]-)+\w|[^\s\\])</string>
 			<key>name</key>
 			<string>constant.numeric.elixir</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>^__END__\n</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>string.unquoted.program-block.elixir</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>__END__ marker</string>
-			<key>contentName</key>
-			<string>text.plain</string>
-			<key>end</key>
-			<string>(?=not)impossible</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(?=&lt;?xml|&lt;(?i:html\b)|!DOCTYPE (?i:html\b))</string>
-					<key>end</key>
-					<string>(?=not)impossible</string>
-					<key>name</key>
-					<string>text.html.embedded.elixir</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>text.html.basic</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -1088,62 +1082,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>nest_brackets_i</key>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\]</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_i</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_brackets_r</key>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\]</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets_r</string>
-				</dict>
-			</array>
-		</dict>
 		<key>nest_curly</key>
 		<dict>
 			<key>begin</key>
@@ -1197,62 +1135,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>nest_curly_i</key>
-		<dict>
-			<key>begin</key>
-			<string>\{</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\}</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_i</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_curly_r</key>
-		<dict>
-			<key>begin</key>
-			<string>\{</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\}</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly_r</string>
-				</dict>
-			</array>
-		</dict>
 		<key>nest_ltgt</key>
 		<dict>
 			<key>begin</key>
@@ -1275,62 +1157,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>nest_ltgt_i</key>
-		<dict>
-			<key>begin</key>
-			<string>\&lt;</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_i</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_ltgt_r</key>
-		<dict>
-			<key>begin</key>
-			<string>\&lt;</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt_r</string>
-				</dict>
-			</array>
-		</dict>
 		<key>nest_parens</key>
 		<dict>
 			<key>begin</key>
@@ -1350,62 +1176,6 @@
 				<dict>
 					<key>include</key>
 					<string>#nest_parens</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_parens_i</key>
-		<dict>
-			<key>begin</key>
-			<string>\(</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolated_elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_i</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_parens_r</key>
-		<dict>
-			<key>begin</key>
-			<string>\(</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#regex_sub</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens_r</string>
 				</dict>
 			</array>
 		</dict>
