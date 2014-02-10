@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module|type)?doc (%[a-z])?"""</string>
+			<string>@(module|type)?doc (~[a-z])?"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
@@ -63,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>@(module|type)?doc %[A-Z]"""</string>
+			<string>@(module|type)?doc ~[A-Z]"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
 			<key>end</key>
@@ -159,20 +159,6 @@
 			<string>\b[A-Z]\w*\b</string>
 			<key>name</key>
 			<string>variable.other.constant.elixir</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>variable.other.constant.elixir</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(%)\[</string>
-			<key>name</key>
-			<string>sigil.other.constant.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -384,7 +370,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z](?&gt;""")</string>
+			<string>~[a-z](?&gt;""")</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -421,7 +407,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z]\{</string>
+			<string>~[a-z]\{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -462,7 +448,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z]\[</string>
+			<string>~[a-z]\[</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -503,7 +489,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z]\&lt;</string>
+			<string>~[a-z]\&lt;</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -544,7 +530,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z]\(</string>
+			<string>~[a-z]\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -585,7 +571,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[a-z]([^\w])</string>
+			<string>~[a-z]([^\w])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -626,7 +612,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z](?&gt;""")</string>
+			<string>~[A-Z](?&gt;""")</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -652,7 +638,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z]\{</string>
+			<string>~[A-Z]\{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -685,7 +671,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z]\[</string>
+			<string>~[A-Z]\[</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -718,7 +704,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z]\&lt;</string>
+			<string>~[A-Z]\&lt;</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -751,7 +737,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z]\(</string>
+			<string>~[A-Z]\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -784,7 +770,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[A-Z]([^\w])</string>
+			<string>~[A-Z]([^\w])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -820,7 +806,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|\|&gt;|=&gt;|~|~=|=|/|\\\\|\*\*?|\.\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\^(\^\^)?)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|\|&gt;|=&gt;|~|~=|=|/|\\\\|\*\*?|\.\.?\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\%?\{\}|%|\[\]|\^(\^\^)?)</string>
 			<key>name</key>
 			<string>constant.other.symbol.elixir</string>
 		</dict>
