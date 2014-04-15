@@ -72,6 +72,37 @@
 			<string>comment.documentation.heredoc</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>@(module|type)?doc (~[a-z])?'''</string>
+			<key>comment</key>
+			<string>@doc with heredocs is treated as documentation</string>
+			<key>end</key>
+			<string>\s*'''</string>
+			<key>name</key>
+			<string>comment.documentation.heredoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_elixir</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>@(module|type)?doc ~[A-Z]'''</string>
+			<key>comment</key>
+			<string>@doc with heredocs is treated as documentation</string>
+			<key>end</key>
+			<string>\s*'''</string>
+			<key>name</key>
+			<string>comment.documentation.heredoc</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>@doc false is treated as documentation</string>
 			<key>match</key>
