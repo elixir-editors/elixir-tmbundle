@@ -471,10 +471,6 @@
 					<key>include</key>
 					<string>#escaped_char</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly</string>
-				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -511,10 +507,6 @@
 				<dict>
 					<key>include</key>
 					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -553,10 +545,6 @@
 					<key>include</key>
 					<string>#escaped_char</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt</string>
-				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -593,10 +581,6 @@
 				<dict>
 					<key>include</key>
 					<string>#escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens</string>
 				</dict>
 			</array>
 		</dict>
@@ -692,13 +676,6 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -725,13 +702,6 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -758,13 +728,6 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -791,13 +754,6 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.literal.upper.elixir</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -1077,50 +1033,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>nest_brackets</key>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\]</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_brackets</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_curly</key>
-		<dict>
-			<key>begin</key>
-			<string>\{</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\}</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_curly</string>
-				</dict>
-			</array>
-		</dict>
+
 		<key>nest_curly_and_self</key>
 		<dict>
 			<key>patterns</key>
@@ -1149,50 +1062,6 @@
 				<dict>
 					<key>include</key>
 					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_ltgt</key>
-		<dict>
-			<key>begin</key>
-			<string>\&lt;</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\&gt;</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_ltgt</string>
-				</dict>
-			</array>
-		</dict>
-		<key>nest_parens</key>
-		<dict>
-			<key>begin</key>
-			<string>\(</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.elixir</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#nest_parens</string>
 				</dict>
 			</array>
 		</dict>
