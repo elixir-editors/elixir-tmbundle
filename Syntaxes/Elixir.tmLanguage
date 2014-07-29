@@ -193,7 +193,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(0[xX]\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0[bB][01]+)\b</string>
+			<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
 			<key>name</key>
 			<string>constant.numeric.elixir</string>
 		</dict>
@@ -835,26 +835,19 @@
 			examples (1st alternation = hex):
 			?\x1     ?\x61
 
-			examples (2nd alternation = octal):
-			?\0      ?\07     ?\017
-
-			examples (3rd alternation = escaped):
+			examples (2rd alternation = escaped):
 			?\n      ?\b
 
-			examples (4th alternation = meta-ctrl):
-			?\C-a    ?\M-a    ?\C-\M-\C-\M-a
-
-			examples (4th alternation = normal):
+			examples (3rd alternation = normal):
 			?a       ?A       ?0 
 			?*       ?"       ?( 
 			?.       ?#
-			
 			
 			the negative lookbehind prevents against matching
 			p(42.tainted?)
 			</string>
 			<key>match</key>
-			<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b|0[0-7]{0,2}(?![0-7])\b|[^x0MC])|(\\[MC]-)+\w|[^\s\\])</string>
+			<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b)|[^\s\\])</string>
 			<key>name</key>
 			<string>constant.numeric.elixir</string>
 		</dict>
@@ -977,7 +970,7 @@
 		<key>escaped_char</key>
 		<dict>
 			<key>match</key>
-			<string>\\(?:[0-7]{1,3}|x[\da-fA-F]{1,2}|.)</string>
+			<string>\\(x[\da-fA-F]{1,2}|.)</string>
 			<key>name</key>
 			<string>constant.character.escape.elixir</string>
 		</dict>
