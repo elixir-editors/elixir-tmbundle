@@ -847,7 +847,7 @@
 			p(42.tainted?)
 			</string>
 			<key>match</key>
-			<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b)|[^\s\\])</string>
+			<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b|[^xMC])|[^\s\\])</string>
 			<key>name</key>
 			<string>constant.numeric.elixir</string>
 		</dict>
