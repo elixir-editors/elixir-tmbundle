@@ -23,8 +23,8 @@ If you are using **Sublime Text 2**, type the following commands in your shell:
 
     cd ~/.config/sublime-text-2/Packages # If you are on Linux
     cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages # If you are on Mac
-    git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
+    git clone git://github.com/elixir-lang/elixir-tmbundle Elixir
 
-You can now use Elixir's color syntax in files. In some case, you should restart Sublime Text to make changes work.
+You can now use Elixir's color syntax in files. In some cases, you should restart Sublime Text to make changes work.
 
 The bundle is still in development and includes syntax highlighting. Contributions and extensions are welcome!
