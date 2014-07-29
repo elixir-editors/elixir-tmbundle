@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>content</key>
-  <string>defimpl $1, :for $2 do
+  <string>defimpl $1, for: $2 do
   $0
 end</string>
   <key>name</key>
