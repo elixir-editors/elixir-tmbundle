@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>content</key>
+  <string>defcallback $1 :: $0</string>
+  <key>name</key>
+  <string>defcallback</string>
+  <key>scope</key>
+  <string>source.elixir</string>
+  <key>tabTrigger</key>
+  <string>defcallback</string>
+  <key>uuid</key>
+  <string>BA860DCC-170C-44FE-8E9A-D05034152952</string>
+</dict>
+</plist>
