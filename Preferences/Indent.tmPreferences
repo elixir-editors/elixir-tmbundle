@@ -11,7 +11,7 @@
 		<key>decreaseIndentPattern</key>
 		<string>^\s*((\}|\])\s*$|(after|else|catch|rescue|end)\b)</string>
 		<key>increaseIndentPattern</key>
-		<string>(after|else|catch|rescue|^.*(do|&lt;\-|\-&gt;|\{|\[))\s*$</string>
+		<string>^\s*(after|else|catch|rescue|^.*(do|&lt;\-|\-&gt;|\{|\[))\s*$</string>
 	</dict>
 	<key>uuid</key>
 	<string>313112A0-FC40-4025-97AE-3E85DC0DB08F</string>
