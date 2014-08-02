@@ -1,5 +1,24 @@
 {
-    "cmd": ["mix", "test"],
+    "cmd": ["mix", "test", "$file"],
+    "selector": "source.elixir",
     "working_dir": "${project_path}",
-    "selector": "source.elixir"
+
+    "variants": [
+
+        {
+          "cmd": ["mix", "deps.get"],
+          "name": "Get mix dependencies",
+          "selector": "source.elixir"
+        },
+
+        { 
+          "cmd": ["mix", "test"],
+          "working_dir": "${project_path}",
+          "name": "Run"
+        }
+        
+
+    ]
+
+
 }
