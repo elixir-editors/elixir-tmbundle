@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
+	<string>#!/usr/bin/env ruby18
 require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/executor"
 
@@ -20,6 +20,8 @@ TextMate::Executor.run(e_sh(ENV['TM_ELIXIR'] || 'elixir'), ENV['TM_FILEPATH'])
 	<string>@r</string>
 	<key>name</key>
 	<string>Run</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
 	<key>outputFormat</key>
 	<string>html</string>
 	<key>outputLocation</key>
@@ -28,5 +30,7 @@ TextMate::Executor.run(e_sh(ENV['TM_ELIXIR'] || 'elixir'), ENV['TM_FILEPATH'])
 	<string>source.elixir</string>
 	<key>uuid</key>
 	<string>06E4B9F0-06CD-4B95-822F-2CC67E3802C2</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
