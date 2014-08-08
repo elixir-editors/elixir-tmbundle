@@ -9,7 +9,7 @@
   <key>scope</key>
   <string>source.elixir</string>
   <key>tabTrigger</key>
-  <string>defexception</string>
+  <string>defe</string>
   <key>uuid</key>
   <string>AE70A3F4-DFE8-46E9-8156-BF70A5AD382D</string>
 </dict>

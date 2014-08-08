@@ -9,7 +9,7 @@
   <key>scope</key>
   <string>source.elixir</string>
   <key>tabTrigger</key>
-  <string>defdelegate</string>
+  <string>defd</string>
   <key>uuid</key>
   <string>C716B59F-52CC-4FF5-A7A6-3B641BFA8BAE</string>
 </dict>

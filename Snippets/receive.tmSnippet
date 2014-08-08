@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>receive do
-	${1:${2:{${3::message_type}, ${4:value}\}}} -&gt; 
-    ${0:# response...}
+	${1:{${2::message_type}, ${3:value}\}} -&gt;
+    ${0:# code}
 end
 </string>
 	<key>name</key>
@@ -13,7 +13,7 @@ end
 	<key>scope</key>
 	<string>source.elixir</string>
 	<key>tabTrigger</key>
-	<string>receive</string>
+	<string>rec</string>
 	<key>uuid</key>
 	<string>0E030583-E0AC-4E7A-B795-0AB594BB66AA</string>
 </dict>
