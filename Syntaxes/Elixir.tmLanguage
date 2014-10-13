@@ -55,7 +55,7 @@
                 </dict>
             </dict>
             <key>match</key>
-            <string>^\s*(defp?)\s+(([A-Za-z_]\w*\s*(\.)\s*)*[A-Za-z_]\w*)</string>
+            <string>^\s*(def(?:macro)?p?)\s+([a-z_]\w*)</string>
             <key>name</key>
             <string>meta.function.elixir</string>
         </dict>
