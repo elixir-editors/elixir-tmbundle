@@ -40,6 +40,25 @@
 			<key>name</key>
 			<string>meta.module.elixir</string>
 		</dict>
+        <dict>
+            <key>captures</key>
+            <dict>
+                <key>1</key>
+                <dict>
+                    <key>name</key>
+                    <string>keyword.control.function.elixir</string>
+                </dict>
+                <key>2</key>
+                <dict>
+                    <key>name</key>
+                    <string>entity.name.type.function.elixir</string>
+                </dict>
+            </dict>
+            <key>match</key>
+            <string>^\s*(defp?)\s+(([A-Za-z_]\w*\s*(\.)\s*)*[A-Za-z_]\w*)</string>
+            <key>name</key>
+            <string>meta.function.elixir</string>
+        </dict>
 		<dict>
 			<key>begin</key>
 			<string>@(module|type)?doc (~[a-z])?"""</string>
@@ -839,10 +858,10 @@
 			?\n      ?\b
 
 			examples (3rd alternation = normal):
-			?a       ?A       ?0 
-			?*       ?"       ?( 
+			?a       ?A       ?0
+			?*       ?"       ?(
 			?.       ?#
-			
+
 			the negative lookbehind prevents against matching
 			p(42.tainted?)
 			</string>
