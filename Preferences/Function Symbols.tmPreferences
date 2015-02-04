@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Function Symbols</string>
 	<key>scope</key>
-	<string>source.elixir.function.public</string>
+	<string>source.elixir.symbol</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
