@@ -68,24 +68,24 @@
 			<key>name</key>
 			<string>source.elixir.function</string>
 			<key>match</key>
-			<string>^\s*(test)\s+("([^"]+)")</string>
+			<string>^\s*((test)\s+("[^"]+"))</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.elixir</string>
-				</dict>
+					<string>source.elixir.function.public</string>
+				</dict>				
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.elixir</string>
+					<string>keyword.control.elixir</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>source.elixir.function.public</string>
-				</dict>				
+					<string>string.quoted.double.elixir</string>
+				</dict>
 			</dict>
   	</dict>			
   	<dict>
