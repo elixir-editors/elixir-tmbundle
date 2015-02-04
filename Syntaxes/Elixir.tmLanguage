@@ -41,6 +41,54 @@
 			<string>meta.module.elixir</string>
 		</dict>
 		<dict>
+			<key>name</key>
+			<string>source.elixir.function</string>
+			<key>match</key>
+			<string>^\s*(def[p]?)\s+(.*)[, ]\s*(do)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>source.elixir.function.public</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+			</dict>
+  	</dict>		
+		<dict>
+			<key>name</key>
+			<string>source.elixir.function</string>
+			<key>match</key>
+			<string>^\s*(test)\s+("([^"]+)")</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.double.elixir</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>source.elixir.function.public</string>
+				</dict>				
+			</dict>
+  	</dict>			
+  	<dict>
 			<key>begin</key>
 			<string>@(module|type)?doc (~[a-z])?"""</string>
 			<key>comment</key>
