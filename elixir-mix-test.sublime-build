@@ -1,5 +1,5 @@
 {
-    "cmd": ["mix", "test"],
+    "shell_cmd": "cd $folder && mix test",
     "working_dir": "${project_path}",
     "selector": "source.elixir"
 }
