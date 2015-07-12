@@ -1,6 +1,6 @@
 # Elixir.tmbundle
 
-A **TextMate Bundle** for the [**Elixir**](http://github.com/elixir-lang/elixir) programming language.
+A **TextMate / Sublime Text Bundle** for the [**Elixir**](http://github.com/elixir-lang/elixir) programming language.
 
 ## Installation
 
