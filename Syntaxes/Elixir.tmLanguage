@@ -42,6 +42,92 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>^\s*(def)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))(?&gt;\(|\s*)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.public.elixir</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>variable.parameter.function.public.elixir</string>
+			<key>end</key>
+			<string>(\))|(do|when)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.public.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(defp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))(?&gt;\(|\s*)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.private.elixir</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>variable.parameter.function.private.elixir</string>
+			<key>end</key>
+			<string>(\))|(do|when)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.private.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>@(module|type)?doc (~[a-z])?"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
@@ -1026,7 +1112,6 @@
 				</dict>
 			</array>
 		</dict>
-
 		<key>nest_curly_and_self</key>
 		<dict>
 			<key>patterns</key>
