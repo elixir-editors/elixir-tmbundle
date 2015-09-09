@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Private Function</string>
+	<key>scope</key>
+	<string>source.elixir entity.name.function.private</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>s/(.*)/ $1  (private)/</string>
+	</dict>
+	<key>uuid</key>
+	<string>1B80EE06-9121-4D37-8413-554C33E3FA29</string>
+</dict>
+</plist>
