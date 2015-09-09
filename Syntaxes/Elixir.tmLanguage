@@ -75,7 +75,7 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.module.elixir</string>
+					<string>constant.other.keywords.elixir</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -123,7 +123,7 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.module.elixir</string>
+					<string>constant.other.keywords.elixir</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -229,13 +229,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\sdo:\s</string>
-			<key>name</key>
-			<string>keyword.control.elixir</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defcallback|defmacrocallback|defexception|defoverridable|exit|after|rescue|catch|else|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(do(?&gt;$|\s)|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defcallback|defmacrocallback|defexception|defoverridable|exit|after|rescue|catch|else(?&gt;$|\s)|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.elixir</string>
 		</dict>
