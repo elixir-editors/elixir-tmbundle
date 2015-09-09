@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(def)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))(?&gt;\(|\s*)</string>
+			<string>^\s*(def)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -55,11 +55,16 @@
 					<key>name</key>
 					<string>entity.name.function.public.elixir</string>
 				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
 			</dict>
 			<key>contentName</key>
 			<string>variable.parameter.function.public.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)|(,\s+(do:?))</string>
+			<string>(\))|(do|when)|((,)\s+(do:?))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -73,6 +78,11 @@
 					<string>keyword.control.module.elixir</string>
 				</dict>
 				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>constant.other.keywords.elixir</string>
@@ -90,7 +100,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(defp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))(?&gt;\(|\s*)</string>
+			<string>^\s*(defp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -103,11 +113,16 @@
 					<key>name</key>
 					<string>entity.name.function.private.elixir</string>
 				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
 			</dict>
 			<key>contentName</key>
 			<string>variable.parameter.function.private.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)|(,\s+(do:?))</string>
+			<string>(\))|(do|when)|((,)\s+(do:?))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -121,6 +136,11 @@
 					<string>keyword.control.module.elixir</string>
 				</dict>
 				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>constant.other.keywords.elixir</string>
