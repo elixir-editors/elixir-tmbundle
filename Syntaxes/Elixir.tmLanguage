@@ -59,7 +59,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.public.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)</string>
+			<string>(\))|(do|when)|(,\s+(do:?))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -68,6 +68,11 @@
 					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.control.module.elixir</string>
@@ -102,7 +107,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.private.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)</string>
+			<string>(\))|(do|when)|(,\s+(do:?))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -111,6 +116,11 @@
 					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.control.module.elixir</string>
@@ -216,6 +226,12 @@
 					<string>#escaped_char</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\sdo:\s</string>
+			<key>name</key>
+			<string>keyword.control.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
