@@ -263,6 +263,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\b[A-Z]\w*\b</string>
+			<key>name</key>
+			<string>support.module.elixir</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>\b(nil|true|false)\b(?![?!])</string>
 			<key>name</key>
 			<string>constant.language.elixir</string>
