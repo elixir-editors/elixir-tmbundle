@@ -32,7 +32,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.type.module.elixir</string>
+					<string>entity.name.class.elixir</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -64,7 +64,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.public.elixir</string>
 			<key>end</key>
-			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s+(do:?\b))</string>
+			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -122,7 +122,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.private.elixir</string>
 			<key>end</key>
-			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s+(do:?\b))</string>
+			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -301,7 +301,7 @@
 			<key>match</key>
 			<string>\b[A-Z]\w*\b</string>
 			<key>name</key>
-			<string>variable.other.constant.elixir</string>
+			<string>support.type.elixir</string>
 		</dict>
 		<dict>
 			<key>match</key>
