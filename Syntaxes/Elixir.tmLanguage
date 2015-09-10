@@ -158,6 +158,42 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>\b(fn)\s*(\(?)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>variable.parameter.function.anonymous.elixir</string>
+			<key>end</key>
+			<string>(\))|-&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>@(module|type)?doc (~[a-z])?"""</string>
 			<key>comment</key>
 			<string>@doc with heredocs is treated as documentation</string>
