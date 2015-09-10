@@ -64,7 +64,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.public.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)|((,)\s+(do:?))</string>
+			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s+(do:?\b))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -122,7 +122,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.private.elixir</string>
 			<key>end</key>
-			<string>(\))|(do|when)|((,)\s+(do:?))</string>
+			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s+(do:?\b))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
