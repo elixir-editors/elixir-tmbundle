@@ -5,11 +5,11 @@
 	<key>name</key>
 	<string>Symbol List: Module</string>
 	<key>scope</key>
-	<string>source.elixir meta.module</string>
+	<string>source.elixir entity.name.type.module</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
-		<integer>0</integer>
+		<integer>1</integer>
 	</dict>
 	<key>uuid</key>
 	<string>7FF38726-C866-419E-A79C-1323948E6800</string>
