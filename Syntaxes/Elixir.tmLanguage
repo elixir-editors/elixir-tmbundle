@@ -345,12 +345,6 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b[A-Z]\w*\b</string>
-			<key>name</key>
-			<string>variable.other.constant.elixir</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
 			<key>name</key>
 			<string>constant.numeric.elixir</string>
