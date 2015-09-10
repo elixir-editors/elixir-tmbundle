@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Module</string>
 	<key>scope</key>
-	<string>source.elixir entity.name.type.module</string>
+	<string>source.elixir entity.name.class</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
