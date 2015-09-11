@@ -75,8 +75,6 @@
 					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 			</dict>
-			<key>contentName</key>
-			<string>variable.parameter.function.public.elixir</string>
 			<key>end</key>
 			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
 			<key>endCaptures</key>
@@ -110,6 +108,12 @@
 					<key>include</key>
 					<string>$self</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b[a-z_]\w*\b</string>
+					<key>name</key>
+					<string>variable.parameter.function.public.elixir</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -133,8 +137,6 @@
 					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 			</dict>
-			<key>contentName</key>
-			<string>variable.parameter.function.private.elixir</string>
 			<key>end</key>
 			<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
 			<key>endCaptures</key>
@@ -164,6 +166,12 @@
 			<string>meta.function.private.elixir</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>match</key>
+					<string>\b[a-z_]\w*\b</string>
+					<key>name</key>
+					<string>variable.parameter.function.private.elixir</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>$self</string>
