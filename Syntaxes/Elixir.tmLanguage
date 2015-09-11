@@ -167,14 +167,14 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+				<dict>
 					<key>match</key>
 					<string>\b[a-z_]\w*\b</string>
 					<key>name</key>
 					<string>variable.parameter.function.private.elixir</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
 				</dict>
 			</array>
 		</dict>
