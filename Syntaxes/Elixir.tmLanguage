@@ -22,23 +22,37 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>^\s*(defmodule)\b</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.control.module.elixir</string>
 				</dict>
-				<key>2</key>
+			</dict>
+			<key>end</key>
+			<string>\b(do)\b</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
 				<dict>
+					<key>name</key>
+					<string>keyword.control.module.elixir</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.module.elixir</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b[A-Z]\w*\b</string>
 					<key>name</key>
 					<string>entity.name.class.elixir</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(defmodule)\s+(([A-Z]\w*\s*(\.)\s*)*[A-Z]\w*)</string>
-			<key>name</key>
-			<string>meta.module.elixir</string>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
