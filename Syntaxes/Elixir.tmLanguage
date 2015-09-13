@@ -23,6 +23,33 @@
 	<array>
 		<dict>
 			<key>begin</key>
+			<string>\b(fn)\b(?!.*-&gt;)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#core_syntax</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b[a-z_]\w*(?!\()\b</string>
+					<key>name</key>
+					<string>variable.parameter.function.anonymous.elixir</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>\b(fn)\b(?=.*-&gt;)</string>
 			<key>beginCaptures</key>
 			<dict>
@@ -33,13 +60,23 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(-&gt;)</string>
+			<string>(?&gt;(-&gt;)|(when)|(\)))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.other.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -62,7 +99,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(?=.*-&gt;)(?!.*\([^\)]*-&gt;)((?!.*\b(fn)\b)|(?=.*-&gt;.*\bfn\b))</string>
+			<string>^(?=.*-&gt;)((?!.*\([^\)]*-&gt;)|(?=[^\(\)]*-&gt;)|(?=\s*\(.*\).*-&gt;))((?!.*\b(fn)\b)|(?=.*-&gt;.*\bfn\b))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -72,13 +109,23 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(-&gt;)</string>
+			<string>(?&gt;(-&gt;)|(when)|(\)))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.other.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.elixir</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
