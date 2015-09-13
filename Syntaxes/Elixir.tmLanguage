@@ -411,6 +411,20 @@
 					<string>variable.other.anonymous.elixir</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.elixir</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\^[a-z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.capture.elixir</string>
+				</dict>
+				<dict>
 					<key>match</key>
 					<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
 					<key>name</key>
