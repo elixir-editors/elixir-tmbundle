@@ -555,7 +555,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>support.function.variable.quoted.single.heredoc.elixir</string>
+					<string>string.quoted.single.heredoc.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -592,7 +592,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>support.function.variable.quoted.single.elixir</string>
+					<string>string.quoted.single.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
