@@ -409,7 +409,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(,|&gt;&gt;)</string>
+					<string>(,|&gt;&gt;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -422,7 +422,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>\b(binary|integer|float|bitstring|bytes|bits|utf(8|16|32)|signed|unsigned|big|little|native|unit)\b</string>
+							<string>\b[a-z]\w*\b</string>
 							<key>name</key>
 							<string>support.type.binary.elixir</string>
 						</dict>
