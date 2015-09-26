@@ -398,6 +398,43 @@
 					</array>
 				</dict>
 				<dict>
+					<key>begin</key>
+					<string>(::)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.binary.elixir</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(,|&gt;&gt;|$)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.binary.elixir</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b[a-z]\w*\b</string>
+							<key>name</key>
+							<string>support.type.binary.elixir</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
+							<key>name</key>
+							<string>constant.numeric.elixir</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
 					<key>match</key>
 					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defcallback|defmacrocallback|defexception|defoverridable|exit|after|rescue|catch|else(?&gt;$|\s)|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!:])</string>
 					<key>name</key>
