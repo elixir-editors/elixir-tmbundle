@@ -232,6 +232,53 @@
 							<string>$self</string>
 						</dict>
 						<dict>
+							<key>begin</key>
+							<string>\s(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(\b[a-z_]\w*)(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.function.public.elixir</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
 							<key>match</key>
 							<string>\b[a-z_]\w*\b</string>
 							<key>name</key>
@@ -287,6 +334,53 @@
 						<dict>
 							<key>include</key>
 							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\s(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(\b[a-z_]\w*)(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.function.private.elixir</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
 						</dict>
 						<dict>
 							<key>match</key>
