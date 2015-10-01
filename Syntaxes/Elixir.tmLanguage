@@ -204,25 +204,20 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
+					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
 							<string>keyword.control.module.elixir</string>
 						</dict>
-						<key>4</key>
+						<key>3</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.parameters.elixir</string>
 						</dict>
-						<key>5</key>
+						<key>4</key>
 						<dict>
 							<key>name</key>
 							<string>constant.other.keywords.elixir</string>
@@ -235,6 +230,53 @@
 						<dict>
 							<key>include</key>
 							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\s(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,|$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(\b[a-z_]\w*)(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.function.public.elixir</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,|$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
 						</dict>
 						<dict>
 							<key>match</key>
@@ -266,25 +308,20 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\))|(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))</string>
+					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
 							<string>keyword.control.module.elixir</string>
 						</dict>
-						<key>4</key>
+						<key>3</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.parameters.elixir</string>
 						</dict>
-						<key>5</key>
+						<key>4</key>
 						<dict>
 							<key>name</key>
 							<string>constant.other.keywords.elixir</string>
@@ -297,6 +334,53 @@
 						<dict>
 							<key>include</key>
 							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\s(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,|$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>(\b[a-z_]\w*)(\\\\)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.function.private.elixir</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.other.elixir</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>,|$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
 						</dict>
 						<dict>
 							<key>match</key>
