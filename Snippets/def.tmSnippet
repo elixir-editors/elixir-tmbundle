@@ -5,8 +5,7 @@
 	<key>content</key>
 	<string>def $1 do
 	$0
-end
-</string>
+end</string>
 	<key>name</key>
 	<string>def</string>
 	<key>scope</key>
