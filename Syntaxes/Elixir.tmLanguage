@@ -525,6 +525,12 @@
 					<string>keyword.control.elixir</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(assert|assert_receive|assert_received|assert_raise|assert_in_delta|flunk|reflute|reflute_receive|reflute_received|reflute_in_delta|catch_error|catch_exit|catch_throw)\b(?![?!:])</string>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<dict>
 					<key>comment</key>
 					<string> as above, just doesn't need a 'end' and does a logic operation</string>
 					<key>match</key>
