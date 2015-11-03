@@ -1,6 +1,11 @@
 {
-  "cmd": ["mix", "compile"],
-  "working_dir": "${project_path:${folder}}",
-  "path": "/usr/local/bin/:${PATH}",
-  "selector": "source.elixir"
+  "cmd": ["elixir", "${file}"],
+  "selector": "source.elixir",
+  "osx":{
+    "path": "/usr/local/bin/:${PATH}"
+  },
+  "windows": {
+    "working_dir": "$file_path",
+    "cmd": ["elixir.bat", "$file_name"]
+  }
 }

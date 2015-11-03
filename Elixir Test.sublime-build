@@ -1,6 +1,8 @@
 {
   "cmd": ["mix", "test", "--no-color"],
   "working_dir": "${project_path:${folder}}",
-  "path": "/usr/local/bin/:${PATH}",
-  "selector": "source.elixir"
+  "selector": "source.elixir",
+  "osx":{
+    "path": "/usr/local/bin/:${PATH}"
+  },
 }
