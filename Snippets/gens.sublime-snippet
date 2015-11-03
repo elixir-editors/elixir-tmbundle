@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+defmodule ${1:MyNamespace.MyModule} do
+  @moduledoc false
+
+  use GenServer
+
+  def start_link(state, opts) do
+    GenServer.start_link(__MODULE__, state, opts)
+  end
+
+  def init(_opts) do
+    {:ok, %{}}
+  end
+
+  def handle_call(_msg, _from, state) do
+    {:reply, :ok, state}
+  end
+
+  def handle_cast(_msg, state) do
+    {:noreply, state}
+  end
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>gens</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.elixir</scope>
+</snippet>

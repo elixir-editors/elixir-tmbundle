@@ -1,0 +1,6 @@
+{
+  "cmd": ["mix", "compile"],
+  "working_dir": "${project_path:${folder}}",
+  "path": "/usr/local/bin/:${PATH}",
+  "selector": "source.elixir"
+}

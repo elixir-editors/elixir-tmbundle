@@ -1,0 +1,25 @@
+<snippet>
+  <content><![CDATA[
+defmodule ${1:MyNamespace.MyModule}.Supervisor do
+  @moduledoc false
+
+  use Supervisor
+
+  def start_link(arg) do
+    Supervisor.start_link(__MODULE__, arg)
+  end
+
+  def init(arg) do
+    children = [
+      worker(MyWorker, [arg], restart: :temporary)
+    ]
+
+    supervise(children, strategy: :one_for_one)
+  end
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>sup</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.elixir</scope>
+</snippet>
