@@ -204,7 +204,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))|$</string>
+					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:))|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -308,7 +308,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:?\s))|$</string>
+					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:))|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
