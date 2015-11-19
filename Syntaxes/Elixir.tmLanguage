@@ -204,23 +204,18 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:))|$</string>
+					<string>(\bdo:)|(\bdo\b|\bwhen\b)|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.module.elixir</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
-						</dict>
-						<key>4</key>
-						<dict>
-							<key>name</key>
 							<string>constant.other.keywords.elixir</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.module.elixir</string>
 						</dict>
 					</dict>
 					<key>name</key>
@@ -308,23 +303,18 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo\b|\bwhen\b)|((,)\s*(do:))|$</string>
+					<string>(\bdo:)|(\bdo\b|\bwhen\b)|$</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.module.elixir</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
-						</dict>
-						<key>4</key>
-						<dict>
-							<key>name</key>
 							<string>constant.other.keywords.elixir</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.module.elixir</string>
 						</dict>
 					</dict>
 					<key>name</key>
