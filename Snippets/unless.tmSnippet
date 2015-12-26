@@ -3,18 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>receive do
-	${1:{${2::${3:message_type}}, ${4:value}\}} -&gt;
-    ${0:# code}
-end
-</string>
+	<string>unless $1 do
+  $0
+end</string>
 	<key>name</key>
-	<string>receive</string>
+	<string>unless</string>
 	<key>scope</key>
 	<string>source.elixir</string>
 	<key>tabTrigger</key>
-	<string>rec</string>
+	<string>unless</string>
 	<key>uuid</key>
-	<string>0E030583-E0AC-4E7A-B795-0AB594BB66AA</string>
+	<string>0AE60466-9C59-4FCD-97B3-3BB40A61BFC4</string>
 </dict>
 </plist>
