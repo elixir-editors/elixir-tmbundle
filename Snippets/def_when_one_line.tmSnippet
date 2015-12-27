@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>def ${1:method_name}${2:(${3:args})} do
-	$0
-end</string>
+	<string>def ${1:method_name}${2:(${3:args})} when ${4:guard_clause}, do: $0</string>
 	<key>name</key>
-	<string>def</string>
+	<string>def…when (one line)</string>
 	<key>scope</key>
 	<string>source.elixir</string>
 	<key>tabTrigger</key>
-	<string>def</string>
+	<string>dfw</string>
 	<key>uuid</key>
-	<string>B84C6EFA-2343-473E-84EC-78F8FBA7F54F</string>
+	<string>0E4DB7D9-223A-4548-8B0C-235FF668562F</string>
 </dict>
 </plist>
