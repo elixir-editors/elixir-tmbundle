@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>unless $1, do: $2, else: $0</string>
 	<key>name</key>
-	<string>unless: else:</string>
+	<string>unless else (one line)</string>
 	<key>scope</key>
 	<string>source.elixir</string>
 	<key>tabTrigger</key>
