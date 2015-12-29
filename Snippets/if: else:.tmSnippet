@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>if $1, do: $2, else: $0</string>
 	<key>name</key>
-	<string>if: else:</string>
+	<string>if else (one line)</string>
 	<key>scope</key>
 	<string>source.elixir</string>
 	<key>tabTrigger</key>
