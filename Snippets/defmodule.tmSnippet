@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>defmodule $1 do
+	<string>defmodule ${1:${TM_FILENAME/(?:\A|_)([A-Za-z0-9]+)(?:\.[a-z]+)*/(?2::\u$1)/g}} do
 	$0
 end</string>
 	<key>name</key>
