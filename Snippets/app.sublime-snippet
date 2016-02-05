@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+defmodule ${0:MyNamespace.MyModule} do
+  @moduledoc false
+
+  use Application
+
+  def start(_type, _args) do
+    ${0:MyNamespace.MyModule}.Supervisor.start_link()
+  end
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>app</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.elixir</scope>
+</snippet>

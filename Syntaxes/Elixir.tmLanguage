@@ -510,7 +510,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defcallback|defmacrocallback|defexception|defoverridable|exit|after|rescue|catch|else(?&gt;$|\s)|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!:])</string>
+					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defcallback|defmacrocallback|defexception|defoverridable|exit|after|rescue|catch|else|test|setup(?&gt;$|\s)|raise|throw|import|require|alias|use|quote|unquote|super)\b(?![?!:])</string>
+					<key>name</key>
+					<string>keyword.control.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(assert|assert_receive|assert_received|assert_raise|assert_in_delta|flunk|reflute|reflute_receive|reflute_received|reflute_in_delta|catch_error|catch_exit|catch_throw)\b(?![?!:])</string>
 					<key>name</key>
 					<string>keyword.control.elixir</string>
 				</dict>
@@ -1230,10 +1236,10 @@
 			?\n      ?\b
 
 			examples (3rd alternation = normal):
-			?a       ?A       ?0 
-			?*       ?"       ?( 
+			?a       ?A       ?0
+			?*       ?"       ?(
 			?.       ?#
-			
+
 			the negative lookbehind prevents against matching
 			p(42.tainted?)
 			</string>

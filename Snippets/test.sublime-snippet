@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[test ${1:"test description"} do
+    $0
+end]]>
+  </content>
+  <tabTrigger>test</tabTrigger>
+  <scope>source.elixir</scope>
+</snippet>
