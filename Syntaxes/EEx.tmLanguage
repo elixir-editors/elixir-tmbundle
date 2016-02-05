@@ -30,7 +30,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>&lt;%+(?!&gt;)[-=]+</string>
+			<string>&lt;%+(?!&gt;)[=%]?</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
