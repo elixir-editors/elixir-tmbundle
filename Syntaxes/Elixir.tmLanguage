@@ -526,7 +526,7 @@
 					<key>match</key>
 					<string>\b[A-Z]\w*\b</string>
 					<key>name</key>
-					<string>support.type.elixir</string>
+					<string>entity.name.class.elixir</string>
 				</dict>
 				<dict>
 					<key>match</key>
