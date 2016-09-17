@@ -1214,6 +1214,20 @@
 						</dict>
 					</dict>
 					<key>match</key>
+					<string>^\s*(##).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.section.elixir</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.elixir</string>
+						</dict>
+					</dict>
+					<key>match</key>
 					<string>(?:^[ \t]+)?(#).*$\n?</string>
 					<key>name</key>
 					<string>comment.line.number-sign.elixir</string>
