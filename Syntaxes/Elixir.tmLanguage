@@ -1347,7 +1347,7 @@
 			<key>match</key>
 			<string>\\(x[\da-fA-F]{1,2}|.)</string>
 			<key>name</key>
-			<string>constant.character.escape.elixir</string>
+			<string>constant.character.escaped.elixir</string>
 		</dict>
 		<key>interpolated_elixir</key>
 		<dict>
