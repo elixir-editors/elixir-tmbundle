@@ -30,7 +30,17 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>&lt;%+(?!&gt;)[-=]*</string>
+			<string>&lt;%+(?!&gt;)[-=]*
+			</string>
+			@0072016
+			foo.gradle@gmail.com
+			2016-12-13T20:51:59.002
+			
+			
+			
+			
+			
+			
 			<key>captures</key>
 			<dict>
 				<key>0</key>
