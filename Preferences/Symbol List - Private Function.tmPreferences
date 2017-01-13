@@ -10,6 +10,8 @@
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
+		<key>showInIndexedSymbolList</key>
+		<integer>1</integer>
 		<key>symbolTransformation</key>
 		<string>s/(.*)/ $1  (private)/</string>
 	</dict>
