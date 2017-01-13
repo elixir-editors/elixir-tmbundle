@@ -10,12 +10,18 @@
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
+		<key>showInIndexedSymbolList</key>
+		<integer>1</integer>
 		<key>symbolTransformation</key>
 		<string>
-		s/defmodule\s+//;
-		s/do//;
-		s/\s//g;
-	</string>
+			s/defmodule\s+//;
+			s/do//;
+			s/\s//g;
+		</string>
+		<key>symbolIndexTransformation</key>
+		<string>
+			s/(defmodule|do)//g;
+		</string>
 	</dict>
 	<key>uuid</key>
 	<string>7FF38726-C866-419E-A79C-1323948E6800</string>
