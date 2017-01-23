@@ -184,7 +184,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*(def)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
+					<string>^\s*(def|defmacro)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -289,7 +289,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*(defp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
+					<string>^\s*(defp|defmacrop)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
