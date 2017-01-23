@@ -204,7 +204,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo:)|(\bdo\b)|$</string>
+					<string>(\bdo:)|(\bdo\b)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -303,7 +303,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo:)|(\bdo\b)|$</string>
+					<string>(\bdo:)|(\bdo\b)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
