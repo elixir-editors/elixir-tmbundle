@@ -182,6 +182,75 @@
 						</dict>
 					</array>
 				</dict>
+
+				<dict>
+					<key>begin</key>
+					<string>^\s*(defprotocol)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.protocol.elixir</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\b(do)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.protocol.elixir</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.protocol_declaration.elixir</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b[A-Z]\w*\b</string>
+							<key>name</key>
+							<string>entity.name.protocol.elixir</string>
+						</dict>
+					</array>
+				</dict>
+
+				<dict>
+					<key>begin</key>
+					<string>^\s*(defimpl)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.protocol.elixir</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\b(do)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.protocol.elixir</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.protocol_implementation.elixir</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b[A-Z]\w*\b</string>
+							<key>name</key>
+							<string>entity.name.protocol.elixir</string>
+						</dict>
+					</array>
+				</dict>
+
 				<dict>
 					<key>begin</key>
 					<string>^\s*(def|defmacro)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
