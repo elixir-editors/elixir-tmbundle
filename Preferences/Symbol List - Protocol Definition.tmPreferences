@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Symbol List: Protocol declaration</string>
+    <key>scope</key>
+    <string>source.elixir meta.protocol_declaration.elixir</string>
+    <key>settings</key>
+    <dict>
+      <key>showInSymbolList</key>
+      <integer>1</integer>
+      <key>showInIndexedSymbolList</key>
+      <integer>1</integer>
+      <key>symbolIndexTransformation</key>
+      <string>
+        s/(defprotocol|do)//g;
+        s/(.+)\s+/$1 \(declaration\)/
+      </string>
+    </dict>
+    <key>uuid</key>
+    <string>FAB806EF-5B7B-4886-B966-A503A2063122</string>
+  </dict>
+</plist>
