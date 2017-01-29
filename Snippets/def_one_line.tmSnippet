@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>def $1, do: $0</string>
+	<string>def ${1:method_name}${2:(${3:args})}, do: $0</string>
 	<key>name</key>
 	<string>def (one line)</string>
 	<key>scope</key>
