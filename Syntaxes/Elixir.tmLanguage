@@ -583,7 +583,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
+							<string>\b(0x[0-9A-Fa-f](?&gt;_?[0-9A-Fa-f])*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
 							<key>name</key>
 							<string>constant.numeric.elixir</string>
 						</dict>
@@ -665,7 +665,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(0x\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
+					<string>\b(0x[0-9A-Fa-f](?&gt;_?[0-9A-Fa-f])*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
 					<key>name</key>
 					<string>constant.numeric.elixir</string>
 				</dict>
@@ -1333,7 +1333,7 @@
 			p(42.tainted?)
 			</string>
 					<key>match</key>
-					<string>(?&lt;!\w)\?(\\(x\h{1,2}(?!\h)\b|[^xMC])|[^\s\\])</string>
+					<string>(?&lt;!\w)\?(\\(x[0-9A-Fa-f]{1,2}(?![0-9A-Fa-f])\b|[^xMC])|[^\s\\])</string>
 					<key>name</key>
 					<string>constant.numeric.elixir</string>
 				</dict>
