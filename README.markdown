@@ -15,7 +15,7 @@ Type the following commands to setup the bundle for **TextMate**:
 If you are using **TextMate 2**, type the following commands in your shell:
 
     mkdir -p ~/Library/Application\ Support/Avian/Bundles
-    cd ~/Library/Application\ Support/Avian/Bundles
+    cd ~/Library/Application\ Support/TextMate/Bundles
     git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
 
 
