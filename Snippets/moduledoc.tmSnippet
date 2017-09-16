@@ -8,6 +8,8 @@ $0
 """</string>
 	<key>name</key>
 	<string>moduledoc</string>
+	<key>scope</key>
+	<string>source.elixir</string>
 	<key>tabTrigger</key>
 	<string>mdoc</string>
 	<key>uuid</key>
