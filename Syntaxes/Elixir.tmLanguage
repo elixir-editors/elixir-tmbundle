@@ -40,12 +40,6 @@
 					<key>include</key>
 					<string>#core_syntax</string>
 				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b[a-z_]\w*(?!\()\b</string>
-					<key>name</key>
-					<string>variable.parameter.function.anonymous.elixir</string>
-				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -84,12 +78,6 @@
 				<dict>
 					<key>include</key>
 					<string>#core_syntax</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b[a-z_]\w*(?!\()\b</string>
-					<key>name</key>
-					<string>variable.parameter.function.anonymous.elixir</string>
 				</dict>
 			</array>
 		</dict>
@@ -133,12 +121,6 @@
 				<dict>
 					<key>include</key>
 					<string>#core_syntax</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b[a-z_]\w*(?!\()\b</string>
-					<key>name</key>
-					<string>variable.parameter.function.anonymous.elixir</string>
 				</dict>
 			</array>
 		</dict>
@@ -317,42 +299,10 @@
 							</array>
 						</dict>
 						<dict>
-							<key>begin</key>
-							<string>(\b[a-z_]\w*)(\\\\)</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>variable.parameter.function.public.elixir</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.other.elixir</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>,|$</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>$self</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
 							<key>match</key>
 							<string>\b(is_atom|is_binary|is_bitstring|is_boolean|is_float|is_function|is_integer|is_list|is_map|is_nil|is_number|is_pid|is_port|is_record|is_reference|is_tuple|is_exception|abs|bit_size|byte_size|div|elem|hd|length|map_size|node|rem|round|tl|trunc|tuple_size)\b</string>
 							<key>name</key>
 							<string>keyword.control.elixir</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>\b[a-z_]\w*\b</string>
-							<key>name</key>
-							<string>variable.parameter.function.public.elixir</string>
 						</dict>
 					</array>
 				</dict>
@@ -422,42 +372,10 @@
 							</array>
 						</dict>
 						<dict>
-							<key>begin</key>
-							<string>(\b[a-z_]\w*)(\\\\)</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>variable.parameter.function.private.elixir</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.other.elixir</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>,|$</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>$self</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
 							<key>match</key>
 							<string>\b(is_atom|is_binary|is_bitstring|is_boolean|is_float|is_function|is_integer|is_list|is_map|is_nil|is_number|is_pid|is_port|is_record|is_reference|is_tuple|is_exception|abs|bit_size|byte_size|div|elem|hd|length|map_size|node|rem|round|tl|trunc|tuple_size)\b</string>
 							<key>name</key>
 							<string>keyword.control.elixir</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>\b[a-z_]\w*\b</string>
-							<key>name</key>
-							<string>variable.parameter.function.private.elixir</string>
 						</dict>
 					</array>
 				</dict>
