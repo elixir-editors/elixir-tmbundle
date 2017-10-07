@@ -1,26 +1,8 @@
 [
-  { "keys": ["#"], "command": "insert_snippet", "args": {"contents": "#{${1:$SELECTION}}$0"}, "context":
-    [
-      { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-      {
-        "operand": "(string.quoted.double.elixir | string.interpolated.elixir) - string source",
-        "operator": "equal",
-        "match_all": true,
-        "key": "selector"
-      }
-    ]
-  },
-  { "keys": ["{"], "command": "insert", "args": {"characters": ""}, "context":
-    [
-      { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-      { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-      { "key": "preceding_text", "operator": "regex_contains", "operand": "#{$", "match_all": true },
-      {
-        "operand": "(string.quoted.double.elixir & source.elixir.embedded.source)",
-        "operator": "equal",
-        "match_all": true,
-        "key": "selector"
-      }
-    ]
+  {
+    "keys": ["super+e"],
+    "caption": "mix format $file",
+    "command": "mix_format_file",
+    "selector": "source.elixir"
   }
 ]
