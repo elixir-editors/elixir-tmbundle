@@ -5,7 +5,7 @@
   <key>content</key>
   <string>inspect($0)</string>
   <key>name</key>
-  <string>IO.inspect</string>
+  <string>inspect</string>
   <key>scope</key>
   <string>source.elixir</string>
   <key>tabTrigger</key>

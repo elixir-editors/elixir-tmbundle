@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>name</key>
-	<string>Symbol List: Public Function</string>
-	<key>scope</key>
-	<string>source.elixir entity.name.function.public</string>
-	<key>settings</key>
 	<dict>
-		<key>showInSymbolList</key>
-		<integer>1</integer>
-		<key>symbolTransformation</key>
-		<string>s// /</string>
+		<key>name</key>
+		<string>Symbol List: Public Function</string>
+		<key>scope</key>
+		<string>source.elixir entity.name.function.public</string>
+		<key>settings</key>
+		<dict>
+			<key>showInSymbolList</key>
+			<integer>1</integer>
+			<key>symbolTransformation</key>
+			<string>s// /</string>
+		</dict>
+		<key>uuid</key>
+		<string>8FDBB14D-D541-4C4C-BADB-02A518F04826</string>
 	</dict>
-	<key>uuid</key>
-	<string>8FDBB14D-D541-4C4C-BADB-02A518F04826</string>
-</dict>
 </plist>
