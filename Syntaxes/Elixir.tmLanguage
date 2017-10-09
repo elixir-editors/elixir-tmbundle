@@ -517,7 +517,7 @@
 					<key>comment</key>
 					<string> as above, just doesn't need a 'end' and does a logic operation</string>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(and|not|or|when|xor|in|inlist|inbits)\b</string>
+					<string>(?&lt;!\.)\b(and|not|or|when|xor|in)\b</string>
 					<key>name</key>
 					<string>keyword.operator.elixir</string>
 				</dict>
@@ -1183,7 +1183,7 @@
 					<key>comment</key>
 					<string>symbols</string>
 					<key>match</key>
-					<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|\|&gt;|=&gt;|~|~=|=|/|\\\\|\*\*?|\.\.?\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\%?\{\}|%|\[\]|\^(\^\^)?)</string>
+					<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_][\w@]*(?&gt;[?!]|=(?![&gt;=]))?|\&lt;\&gt;|===?|!==?|&lt;&lt;&gt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~|::|&lt;\-|\|&gt;|=&gt;|=~|=|/|\\\\|\*\*?|\.\.?\.?|&gt;=?|&lt;=?|&amp;&amp;?&amp;?|\+\+?|\-\-?|\|\|?\|?|\!|@|\%?\{\}|%|\[\]|\^(\^\^)?)</string>
 					<key>name</key>
 					<string>constant.other.symbol.elixir</string>
 				</dict>
@@ -1257,12 +1257,6 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\+=|\-=|\|\|=|~=|&amp;&amp;=</string>
-					<key>name</key>
-					<string>keyword.operator.assignment.augmented.elixir</string>
-				</dict>
-				<dict>
-					<key>match</key>
 					<string>===?|!==?|&lt;=?|&gt;=?</string>
 					<key>name</key>
 					<string>keyword.operator.comparison.elixir</string>
@@ -1287,7 +1281,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\||\+\+|\-\-|\*\*|\\\\|\&lt;\-|\&lt;\&gt;|\&lt;\&lt;|\&gt;\&gt;|\:\:|\.\.|\|&gt;|~|=&gt;</string>
+					<string>\||\+\+|\-\-|\*\*|\\\\|\&lt;\-|\&lt;\&gt;|\&lt;\&lt;|\&gt;\&gt;|\:\:|\.\.|\|&gt;|~|=&gt;|&amp;</string>
 					<key>name</key>
 					<string>keyword.operator.other.elixir</string>
 				</dict>
