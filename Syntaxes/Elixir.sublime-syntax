@@ -16,8 +16,6 @@ contexts:
         - match: $
           pop: true
         - include: core_syntax
-        - match: '\b[a-z_]\w*(?!\()\b'
-          scope: variable.parameter.function.anonymous.elixir
     - match: \b(fn)\b(?=.*->)
       captures:
         1: keyword.control.elixir
@@ -29,8 +27,6 @@ contexts:
             3: punctuation.definition.parameters.elixir
           pop: true
         - include: core_syntax
-        - match: '\b[a-z_]\w*(?!\()\b'
-          scope: variable.parameter.function.anonymous.elixir
     - include: core_syntax
     - match: ^(?=.*->)((?![^"']*("|'')[^"']*->)|(?=.*->[^"']*("|'')[^"']*->))((?!.*\([^\)]*->)|(?=[^\(\)]*->)|(?=\s*\(.*\).*->))((?!.*\b(fn)\b)|(?=.*->.*\bfn\b))
       captures:
@@ -43,8 +39,6 @@ contexts:
             3: punctuation.definition.parameters.elixir
           pop: true
         - include: core_syntax
-        - match: '\b[a-z_]\w*(?!\()\b'
-          scope: variable.parameter.function.anonymous.elixir
 
   function_body:
     - meta_scope: meta.function.elixir
@@ -61,18 +55,8 @@ contexts:
         - match: ',|\)|$'
           pop: true
         - include: main
-    - match: '(\b[a-z_]\w*)(\\\\)'
-      captures:
-        1: variable.parameter.function.elixir
-        2: keyword.operator.other.elixir
-      push:
-        - match: ",|$"
-          pop: true
-        - include: main
     - match: \b(is_atom|is_binary|is_bitstring|is_boolean|is_float|is_function|is_integer|is_list|is_map|is_nil|is_number|is_pid|is_port|is_record|is_reference|is_tuple|is_exception|abs|bit_size|byte_size|div|elem|hd|length|map_size|node|rem|round|tl|trunc|tuple_size)\b
       scope: keyword.guard.elixir
-    - match: '\b[a-z_]\w*\b'
-      scope: variable.parameter.function.elixir
 
   numeric:
     - match: '\b(0x[0-9A-Fa-f](?>_?[0-9A-Fa-f])*|0b[01]+|0o[0-7]+|\d(?>_?\d)*(\.\d(?>_?\d)*)?([eE][-+]?\d(?>_?\d)*)?)\b'
