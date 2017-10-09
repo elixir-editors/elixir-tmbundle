@@ -449,7 +449,7 @@ contexts:
 
     - match: '(?<!\.)\b(do|end|case|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defdelegate|defexception|defoverridable|exit|after|rescue|catch|else|raise|throw|import|require|alias|use|quote|unquote|super|with)\b(?![?!:])'
       scope: keyword.control.elixir
-    - match: (?<!\.)\b(and|not|or|when|xor|in|inlist|inbits)\b
+    - match: (?<!\.)\b(and|not|or|when|xor|in)\b
       comment: as above, just doesn't need a 'end' and does a logic operation
       scope: keyword.operator.elixir
     - match: '\b[A-Z]\w*\b'
@@ -488,7 +488,7 @@ contexts:
           pop: true
         - include: interpolated_elixir
         - include: escaped_char
-    - match: '(?<!:)(:)(?>[a-zA-Z_][\w@]*(?>[?!]|=(?![>=]))?|\<\>|===?|!==?|<<>>|<<<|>>>|~~~|::|<\-|\|>|=>|~|~=|=|/|\\\\|\*\*?|\.\.?\.?|>=?|<=?|&&?&?|\+\+?|\-\-?|\|\|?\|?|\!|@|\%?\{\}|%|\[\]|\^(\^\^)?)'
+    - match: '(?<!:)(:)(?>[a-zA-Z_][\w@]*(?>[?!]|=(?![>=]))?|\<\>|===?|!==?|<<>>|<<<|>>>|~~~|::|<\-|\|>|=>|=~|=|/|\\\\|\*\*?|\.\.?\.?|>=?|<=?|&&?&?|\+\+?|\-\-?|\|\|?\|?|\!|@|\%?\{\}|%|\[\]|\^(\^\^)?)'
       comment: symbols
       scope: constant.other.symbol.elixir
       captures:
