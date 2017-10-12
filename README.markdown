@@ -2,6 +2,8 @@
 
 A **TextMate / Sublime Text Bundle** for the [**Elixir**](http://github.com/elixir-lang/elixir) programming language.
 
+It provides syntax highlighting, snippets, and keybindings. Contributions and extensions are welcome!
+
 ## Installation
 
 Type the following commands to setup the bundle for **TextMate**:
@@ -35,4 +37,11 @@ If you are using **Sublime Text 3**, type the following commands in your shell:
 
 You can now use Elixir's color syntax in files. In some cases, you should restart Sublime Text to make changes work.
 
-The bundle is still in development and includes syntax highlighting. Contributions and extensions are welcome!
+## Code formatting for Sublime Text 3
+
+Elixir v1.6 includes a code formatter. This package includes `super+shift+c` as a keybinding to automatically save and format the current file you are working on. If the file has invalid syntax, an alert will appear.
+
+You can also add your own keybindings as follows:
+
+    { "keys": ["super+e"], "command": "mix_format_file" }
+

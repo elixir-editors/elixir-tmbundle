@@ -1,6 +1,6 @@
 [
   {
-    "keys": ["super+e"],
+    "keys": ["super+shift+c"],
     "caption": "mix format $file",
     "command": "mix_format_file",
     "selector": "source.elixir"
