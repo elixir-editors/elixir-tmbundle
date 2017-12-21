@@ -1243,10 +1243,10 @@
 			?\n      ?\b
 
 			examples (3rd alternation = normal):
-			?a       ?A       ?0 
-			?*       ?"       ?( 
+			?a       ?A       ?0
+			?*       ?"       ?(
 			?.       ?#
-			
+
 			the negative lookbehind prevents against matching
 			p(42.tainted?)
 			</string>
@@ -1254,6 +1254,31 @@
 					<string>(?&lt;!\w)\?(\\(x[0-9A-Fa-f]{1,2}(?![0-9A-Fa-f])\b|[^xMC])|[^\s\\])</string>
 					<key>name</key>
 					<string>constant.numeric.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\+\+|\-\-|&lt;\|&gt;</string>
+					<key>name</key>
+					<string>keyword.operator.concatenation.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\|\&gt;|&lt;~&gt;|&lt;&gt;|&lt;&lt;&lt;|&gt;&gt;&gt;|~&gt;&gt;|&lt;&lt;~|~&gt;|&lt;~|&lt;\|&gt;</string>
+					<key>name</key>
+					<string>keyword.operator.sigils_1.elixir</string>
+				</dict>
+
+				<dict>
+					<key>match</key>
+					<string>&amp;&amp;&amp;|&amp;&amp;</string>
+					<key>name</key>
+					<string>keyword.operator.sigils_2.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>&lt;\-|\\\\</string>
+					<key>name</key>
+					<string>keyword.operator.sigils_3.elixir</string>
 				</dict>
 				<dict>
 					<key>match</key>
