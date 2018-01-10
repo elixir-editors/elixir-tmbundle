@@ -45,3 +45,7 @@ You can also add your own keybindings as follows:
 
     { "keys": ["super+e"], "command": "mix_format_file" }
 
+You can also set up the package to automatically format the file on save. To do this,
+go to Preferences -> Package Settings -> Elixir -> Settings and add
+`"mix_format_on_save": true`.
+
