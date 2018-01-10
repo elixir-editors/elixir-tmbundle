@@ -6,6 +6,24 @@ import subprocess
 class MixFormatFileCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     window = self.view.window()
+    window.run_command("save")
+    window.run_command("mix_format_file_without_save")
+
+class MixFormatOnSave(sublime_plugin.EventListener):
+  def on_post_save(self, view):
+    sel = view.sel()[0]
+    region = view.word(sel)
+    scope = view.scope_name(region.b)
+
+    if scope.find('source.elixir') != -1:
+      settings = sublime.load_settings('Elixir.sublime-settings')
+
+      if settings.get('mix_format_on_save', False):
+        view.run_command('mix_format_file_without_save')
+
+class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    window = self.view.window()
 
     # Hide the console window on Windows
     shell = False
@@ -41,14 +59,3 @@ class MixFormatFileCommand(sublime_plugin.TextCommand):
       window.status_message('Formatting successful!')
 
 
-class MixFormatOnSave(sublime_plugin.EventListener):
-  def on_post_save(self, view):
-    sel = view.sel()[0]
-    region = view.word(sel)
-    scope = view.scope_name(region.b)
-
-    if scope.find('source.elixir') != -1:
-      settings = sublime.load_settings('Elixir.sublime-settings')
-
-      if settings.get('mix_format_on_save', False):
-        view.run_command('mix_format_file')
