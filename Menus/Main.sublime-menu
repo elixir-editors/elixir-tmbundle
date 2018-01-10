@@ -1,0 +1,26 @@
+[
+    {
+        "id": "preferences",
+        "children":
+        [{
+            "id": "package-settings",
+            "children":
+            [
+                {
+                    "caption": "Elixir",
+                    "children":
+                    [
+                        {
+                            "caption": "Settings",
+                            "command": "edit_settings",
+                            "args": {
+                                "base_file": "${packages}/Elixir/Settings/Elixir.sublime-settings",
+                                "default": "// Settings in here override those in \"Elixir/Settings/Elixir.sublime-settings\",\n\n{\n\t$0\n}\n"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }]
+    }
+]
