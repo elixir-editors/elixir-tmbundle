@@ -70,7 +70,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.parameters.elixir</string>
+					<string>punctuation.section.function.elixir</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -113,7 +113,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.parameters.elixir</string>
+					<string>punctuation.section.function.elixir</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
