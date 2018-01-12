@@ -251,7 +251,7 @@
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
+							<string>punctuation.section.function.elixir</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -324,7 +324,7 @@
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.parameters.elixir</string>
+							<string>punctuation.section.function.elixir</string>
 						</dict>
 					</dict>
 					<key>end</key>
