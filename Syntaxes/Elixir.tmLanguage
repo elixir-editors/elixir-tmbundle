@@ -1195,18 +1195,6 @@
 					<string>comment.line.number-sign.elixir</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b_([\w]+[?!]?)(?=[^\w?!])(?!\()</string>
-					<key>name</key>
-					<string>comment.unused.elixir</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b_\b</string>
-					<key>name</key>
-					<string>comment.wildcard.elixir</string>
-				</dict>
-				<dict>
 					<key>comment</key>
 					<string>
 			matches questionmark-letters.
