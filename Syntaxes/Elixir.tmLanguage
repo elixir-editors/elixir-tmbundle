@@ -1251,7 +1251,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(\|\|\||&amp;&amp;&amp;|^^^|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~)</string>
+					<string>(\|\|\||&amp;&amp;&amp;|\^\^\^|&lt;&lt;&lt;|&gt;&gt;&gt;|~~~)</string>
 					<key>name</key>
 					<string>keyword.operator.bitwise.elixir</string>
 				</dict>
