@@ -235,7 +235,7 @@
 
 				<dict>
 					<key>begin</key>
-					<string>^\s*(def|defmacro)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
+					<string>^\s*(def|defmacro|defdelegate)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -255,7 +255,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo:)|(\bdo\b)|(?=\s+(def|defmacro)\b)</string>
+					<string>(\bdo:)|(\bdo\b)|(?=\s+(def|defmacro|defdelegate)\b)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
