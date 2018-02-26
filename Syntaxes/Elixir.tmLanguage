@@ -498,7 +498,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(__(CALLER|ENV|MODULE|DIR)__)\b(?![?!])</string>
+					<string>\b(__(CALLER|ENV|MODULE|DIR|STACKTRACE)__)\b(?![?!])</string>
 					<key>name</key>
 					<string>variable.language.elixir</string>
 				</dict>
