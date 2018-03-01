@@ -38,7 +38,8 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
       cmd,
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE,
-      shell=shell
+      shell=shell,
+      cwd=window.folders()[0]
     )
 
     _, stderrdata = p.communicate()
