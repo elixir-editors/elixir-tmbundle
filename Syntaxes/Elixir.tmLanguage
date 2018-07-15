@@ -531,6 +531,12 @@
 					<string>variable.other.anonymous.elixir</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>&amp;(?![&apm;])</string>
+					<key>name</key>
+					<string>variable.other.anonymous.elixir</string>
+				</dict>
+				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
