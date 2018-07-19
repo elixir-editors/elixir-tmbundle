@@ -532,7 +532,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>&amp;(?![&apm;])</string>
+					<string>&amp;(?![&amp;])</string>
 					<key>name</key>
 					<string>variable.other.anonymous.elixir</string>
 				</dict>
