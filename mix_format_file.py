@@ -21,6 +21,9 @@ class MixFormatOnSave(sublime_plugin.EventListener):
       if settings.get('mix_format_on_save', False):
         view.run_command('mix_format_file_without_save')
 
+        if settings.get('reload_after_mix_format', False):
+          view.run_command("revert")
+
 class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     window = self.view.window()
