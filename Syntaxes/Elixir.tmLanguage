@@ -785,7 +785,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.double.heredoc.elixir</string>
+					<string>string.quoted.other.sigil.heredoc.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1007,7 +1007,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.heredoc.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1033,7 +1033,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1059,7 +1059,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1085,7 +1085,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1111,7 +1111,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1137,7 +1137,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.other.literal.upper.elixir</string>
+					<string>string.quoted.other.sigil.literal.elixir</string>
 				</dict>
 				<dict>
 					<key>captures</key>
