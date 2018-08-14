@@ -822,7 +822,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.interpolated.elixir</string>
+					<string>string.quoted.other.sigil.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -859,7 +859,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.interpolated.elixir</string>
+					<string>string.quoted.other.sigil.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -896,7 +896,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.interpolated.elixir</string>
+					<string>string.quoted.other.sigil.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -933,7 +933,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.interpolated.elixir</string>
+					<string>string.quoted.other.sigil.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -970,7 +970,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.interpolated.elixir</string>
+					<string>string.quoted.other.sigil.elixir</string>
 					<key>patterns</key>
 					<array>
 						<dict>
