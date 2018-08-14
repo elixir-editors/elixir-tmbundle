@@ -981,10 +981,6 @@
 							<key>include</key>
 							<string>#escaped_char</string>
 						</dict>
-						<dict>
-							<key>include</key>
-							<string>#escaped_char</string>
-						</dict>
 					</array>
 				</dict>
 				<dict>
