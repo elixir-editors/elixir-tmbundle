@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -w
+
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/escape"
+require "enumerator"
+
+TAGS = %w[&lt;%# &lt;%% &lt;%= &lt;%].freeze
+
+# locate caret (Allan's code)
+line = ENV['TM_LINE_NUMBER'].to_i - ENV['TM_INPUT_START_LINE'].to_i
+col  = ENV['TM_LINE_INDEX'].to_i
+if ENV['TM_LINE_NUMBER'].to_i == ENV['TM_INPUT_START_LINE'].to_i
+  col -= ENV['TM_INPUT_START_LINE_INDEX'].to_i
+end
+
+# read input
+input = $stdin.read
+
+# snippetize output
+lines       = RUBY_VERSION &lt; "1.9" ? input.to_a : input.lines.to_a
+lines[line] = e_sn(lines[line][0...col]) + "${0}" + e_sn(lines[line][col..-1])
+enum        = RUBY_VERSION &lt; "1.9" ? lines.enum_with_index :
+                                     lines.each.with_index
+output      = enum.inject(String.new) do |out, (l, i)|
+  i == line ? out + l : out + e_sn(l)
+end
+
+# swap ERb tags
+result = output.sub(/\A&lt;%[%#=]?/) { |match| TAGS[TAGS.index(match) - 1] }
+print result</string>
+	<key>disableOutputAutoIndent</key>
+	<true/>
+	<key>fallbackInput</key>
+	<string>scope</string>
+	<key>hideFromUser</key>
+	<true/>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^&gt;</string>
+	<key>name</key>
+	<string>Toggle EEx Tags</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>text.html.elixir meta.embedded.line.elixir, text.elixir meta.embedded.line.elixir,text.html.elixir comment.block.elixir, text.elixir comment.block.elixir</string>
+	<key>uuid</key>
+	<string>038A0943-8456-4592-B9AD-F62D295613FE</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
