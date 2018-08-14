@@ -26,7 +26,7 @@
 			<key>end</key>
 			<string>%&gt;</string>
 			<key>name</key>
-			<string>comment.block.eex</string>
+			<string>comment.block.elixir</string>
 		</dict>
 		<dict>
 			<key>begin</key>
