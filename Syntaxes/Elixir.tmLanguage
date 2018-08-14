@@ -555,9 +555,33 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(0x[0-9A-Fa-f](?&gt;_?[0-9A-Fa-f])*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0b[01]+|0o[0-7]+)\b</string>
+					<string>\b0x[0-9A-Fa-f](?&gt;_?[0-9A-Fa-f])*\b</string>
 					<key>name</key>
-					<string>constant.numeric.elixir</string>
+					<string>constant.numeric.hex.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)+)([eE][-+]?\d(?&gt;_?\d)*)?\b</string>
+					<key>name</key>
+					<string>constant.numeric.float.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b\d(?&gt;_?\d)*\b</string>
+					<key>name</key>
+					<string>constant.numeric.integer.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b0b[01]+\b</string>
+					<key>name</key>
+					<string>constant.numeric.binary.elixir</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b0o[0-7]+\b</string>
+					<key>name</key>
+					<string>constant.numeric.octal.elixir</string>
 				</dict>
 				<dict>
 					<key>begin</key>
