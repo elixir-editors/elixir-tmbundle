@@ -160,11 +160,10 @@
 							<key>match</key>
 							<string>\b[A-Z]\w*\b</string>
 							<key>name</key>
-							<string>entity.name.class.elixir</string>
+							<string>entity.name.type.class.elixir</string>
 						</dict>
 					</array>
 				</dict>
-
 				<dict>
 					<key>begin</key>
 					<string>^\s*(defprotocol)\b</string>
@@ -194,11 +193,10 @@
 							<key>match</key>
 							<string>\b[A-Z]\w*\b</string>
 							<key>name</key>
-							<string>entity.name.protocol.elixir</string>
+							<string>entity.name.type.protocol.elixir</string>
 						</dict>
 					</array>
 				</dict>
-
 				<dict>
 					<key>begin</key>
 					<string>^\s*(defimpl)\b</string>
@@ -228,11 +226,10 @@
 							<key>match</key>
 							<string>\b[A-Z]\w*\b</string>
 							<key>name</key>
-							<string>entity.name.protocol.elixir</string>
+							<string>entity.name.type.protocol.elixir</string>
 						</dict>
 					</array>
 				</dict>
-
 				<dict>
 					<key>begin</key>
 					<string>^\s*(def|defmacro|defdelegate|defguard)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
@@ -488,7 +485,7 @@
 					<key>match</key>
 					<string>\b[A-Z]\w*\b</string>
 					<key>name</key>
-					<string>entity.name.class.elixir</string>
+					<string>entity.name.type.class.elixir</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1236,7 +1233,6 @@
 					<key>name</key>
 					<string>keyword.operator.sigils_1.elixir</string>
 				</dict>
-
 				<dict>
 					<key>match</key>
 					<string>&amp;&amp;&amp;|&amp;&amp;</string>
