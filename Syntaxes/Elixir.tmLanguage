@@ -158,6 +158,12 @@
 					<array>
 						<dict>
 							<key>match</key>
+							<string>\b[A-Z]\w*(?=\.)</string>
+							<key>name</key>
+							<string>entity.other.inherited-class.elixir</string>
+						</dict>
+						<dict>
+							<key>match</key>
 							<string>\b[A-Z]\w*\b</string>
 							<key>name</key>
 							<string>entity.name.type.class.elixir</string>
