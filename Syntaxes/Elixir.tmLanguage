@@ -384,7 +384,7 @@
 					<key>end</key>
 					<string>\s*"""</string>
 					<key>name</key>
-					<string>comment.documentation.heredoc</string>
+					<string>comment.block.documentation.heredoc</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -405,7 +405,7 @@
 					<key>end</key>
 					<string>\s*"""</string>
 					<key>name</key>
-					<string>comment.documentation.heredoc</string>
+					<string>comment.block.documentation.heredoc</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -415,7 +415,7 @@
 					<key>end</key>
 					<string>\s*'''</string>
 					<key>name</key>
-					<string>comment.documentation.heredoc</string>
+					<string>comment.block.documentation.heredoc</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -436,7 +436,7 @@
 					<key>end</key>
 					<string>\s*'''</string>
 					<key>name</key>
-					<string>comment.documentation.heredoc</string>
+					<string>comment.block.documentation.heredoc</string>
 				</dict>
 				<dict>
 					<key>comment</key>
@@ -444,7 +444,7 @@
 					<key>match</key>
 					<string>@(module|type)?doc false</string>
 					<key>name</key>
-					<string>comment.documentation.false</string>
+					<string>comment.block.documentation.false</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -454,7 +454,7 @@
 					<key>end</key>
 					<string>"</string>
 					<key>name</key>
-					<string>comment.documentation.string</string>
+					<string>comment.block.documentation.string</string>
 					<key>patterns</key>
 					<array>
 						<dict>
