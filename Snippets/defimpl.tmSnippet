@@ -2,17 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>content</key>
-  <string>defimpl $1, for: $2 do
-  $0
+	<key>content</key>
+	<string>defimpl $1, for: $2 do
+	$0
 end</string>
-  <key>name</key>
-  <string>defimpl</string>
-  <key>scope</key>
-  <string>source.elixir</string>
-  <key>tabTrigger</key>
-  <string>defi</string>
-  <key>uuid</key>
-  <string>0F19FC07-C543-4E3E-BA08-6C7860E13686</string>
+	<key>name</key>
+	<string>defimpl</string>
+	<key>scope</key>
+	<string>source.elixir</string>
+	<key>tabTrigger</key>
+	<string>defi</string>
+	<key>uuid</key>
+	<string>0F19FC07-C543-4E3E-BA08-6C7860E13686</string>
 </dict>
 </plist>

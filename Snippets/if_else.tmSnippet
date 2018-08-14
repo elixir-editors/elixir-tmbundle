@@ -4,9 +4,9 @@
 <dict>
 	<key>content</key>
 	<string>if $1 do
-  $2
+	$2
 else
-  $0
+	$0
 end</string>
 	<key>name</key>
 	<string>if else</string>

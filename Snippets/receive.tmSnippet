@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>receive do
 	${1:{${2::${3:message_type}}, ${4:value}\}} -&gt;
-    ${0:# code}
+		${0:# code}
 end
 </string>
 	<key>name</key>
