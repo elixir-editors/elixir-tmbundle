@@ -18,6 +18,21 @@
 		|^\s*--&gt;
 		|(^|\s)\}
 		)</string>
+	<key>injections</key>
+	<dict>
+		<key>R:text.html.elixir meta.tag meta.attribute string.quoted</key>
+		<dict>
+			<key>comment</key>
+			<string>Uses R: to ensure this matches after any other injections.</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.elixir</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>name</key>
 	<string>HTML (EEx)</string>
 	<key>patterns</key>
