@@ -1,6 +1,6 @@
 env:
     global:
-        - PACKAGE="UnitTesting-example" # Package name
+        - PACKAGE="Elixir" # Package name
         - SUBLIME_TEXT_VERSION="3"
 
 # mutliple os matrix

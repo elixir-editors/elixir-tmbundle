@@ -1,5 +1,8 @@
 # Elixir.tmbundle
 
+[![Travis build](https://secure.travis-ci.org/elixir-editors/elixir-tmbundle.svg?branch=master
+"Build Status")](https://travis-ci.org/elixir-editors/elixir-tmbundle)
+
 A **TextMate / Sublime Text Bundle** for the [**Elixir**](http://github.com/elixir-lang/elixir) programming language.
 
 It provides syntax highlighting, snippets, and keybindings. Contributions and extensions are welcome!
