@@ -1,4 +1,4 @@
-// SYNTAX TEST "Packages/Elixir/Syntaxes/Elixir.tmLanguage"
+// SYNTAX TEST "Elixir.tmLanguage"
 "Hello, World! # not a comment"
 // ^ string.quoted.double
 //                  ^ string.quoted.double - comment
@@ -6,4 +6,3 @@
 # Comment
 import Foo
 // ^ source.elixir keyword.control.elixir
-
