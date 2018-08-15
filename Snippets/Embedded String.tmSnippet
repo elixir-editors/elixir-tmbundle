@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>#{${1:$TM_SELECTED_TEXT}}</string>
+	<key>hideFromUser</key>
+	<true/>
+	<key>keyEquivalent</key>
+	<string>#</string>
+	<key>name</key>
+	<string>Embedded Code — #{…}</string>
+	<key>scope</key>
+	<string>source.elixir &amp; B:(string.quoted.single.heredoc.elixir|string.quoted.single.elixir|string.quoted.double.heredoc.elixir|string.quoted.double.elixir|string.quoted.other.sigil.heredoc.elixir|string.quoted.other.sigil.elixir) - string source</string>
+	<key>uuid</key>
+	<string>B998866C-7FFE-4826-A924-72F0C3942F4A</string>
+</dict>
+</plist>

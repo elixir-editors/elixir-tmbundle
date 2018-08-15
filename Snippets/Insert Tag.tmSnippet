@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>defimpl $1, for: $2 do
-	$0
-end</string>
+	<string>&lt;% ${0:$TM_SELECTED_TEXT} %&gt;</string>
+	<key>keyEquivalent</key>
+	<string>^&gt;</string>
 	<key>name</key>
-	<string>defimpl</string>
+	<string>Insert EEx Tag</string>
 	<key>scope</key>
-	<string>source.elixir</string>
+	<string>text.elixir,text.html.elixir</string>
 	<key>tabTrigger</key>
-	<string>defi</string>
+	<string>ee</string>
 	<key>uuid</key>
-	<string>0F19FC07-C543-4E3E-BA08-6C7860E13686</string>
+	<string>ED063C3E-E58C-4877-868F-2717EE7512CB</string>
 </dict>
 </plist>

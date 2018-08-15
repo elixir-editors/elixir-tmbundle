@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>case $1 do
-  $2 -&gt;
-    $0
+	$2 -&gt;
+		$0
 end</string>
 	<key>name</key>
 	<string>case</string>

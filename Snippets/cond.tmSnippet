@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>cond do
-  $1 -&gt;
-    $0
+	$1 -&gt;
+		$0
 end</string>
 	<key>name</key>
 	<string>cond</string>

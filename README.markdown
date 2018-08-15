@@ -9,18 +9,18 @@ It provides syntax highlighting, snippets, and keybindings. Contributions and ex
 
 ## Installation
 
-Type the following commands to setup the bundle for **TextMate**:
+If you are using **TextMate 2** you can install from Preferences → Bundles. To install manually type the following commands in your shell:
+
+    mkdir -p ~/Library/Application\ Support/TextMate/Pristine\ Copy/Bundles
+    cd ~/Library/Application\ Support/TextMate/Pristine\ Copy/Bundles
+    git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
+
+Type the following commands to setup the bundle for **TextMate 1**:
 
     mkdir -p ~/Library/Application\ Support/TextMate/Bundles
     cd !$
     git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
     osascript -e 'tell app "TextMate" to reload bundles'
-
-If you are using **TextMate 2**, type the following commands in your shell:
-
-    mkdir -p ~/Library/Application\ Support/TextMate/Bundles
-    cd ~/Library/Application\ Support/TextMate/Bundles
-    git clone git://github.com/elixir-lang/elixir-tmbundle Elixir.tmbundle
 
 If you are using **Sublime Text 2**, type the following commands in your shell:
 
