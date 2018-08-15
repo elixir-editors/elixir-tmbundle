@@ -7,6 +7,8 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18 -w
 
+# Originally from the Ruby bundle for ERB tags
+
 require "#{ENV["TM_SUPPORT_PATH"]}/lib/escape"
 require "enumerator"
 
@@ -31,7 +33,7 @@ output      = enum.inject(String.new) do |out, (l, i)|
   i == line ? out + l : out + e_sn(l)
 end
 
-# swap ERb tags
+# swap EEx tags
 result = output.sub(/\A&lt;%[%#=]?/) { |match| TAGS[TAGS.index(match) - 1] }
 print result</string>
 	<key>disableOutputAutoIndent</key>
