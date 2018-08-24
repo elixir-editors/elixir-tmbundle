@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>content</key>
-  <string>require IEx
-IEx.pry()</string>
+  <string>require IEx; IEx.pry()</string>
   <key>name</key>
   <string>pry</string>
   <key>scope</key>
