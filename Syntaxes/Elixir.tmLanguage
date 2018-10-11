@@ -573,13 +573,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b0b[01]+\b</string>
+					<string>\b0b[01](?&gt;_?[01])*\b</string>
 					<key>name</key>
 					<string>constant.numeric.binary.elixir</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b0o[0-7]+\b</string>
+					<string>\b0o[0-7](?&gt;_?[0-7])*\b</string>
 					<key>name</key>
 					<string>constant.numeric.octal.elixir</string>
 				</dict>
