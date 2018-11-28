@@ -1,4 +1,5 @@
 import os
+from os import path
 import sublime
 import sublime_plugin
 import subprocess
@@ -35,14 +36,25 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
         shell = True
         path_separator = ';'
 
-    cmd = ['mix', 'format', self.view.file_name()]
+    file_name = self.view.file_name()
+    cmd = ['mix', 'format', file_name]
+
+    cwd = window.folders()[0]
+    cur_dir = path.dirname(file_name)
+
+    while cwd != cur_dir:
+      if path.isfile(path.join(cur_dir, 'mix.exs')):
+        cwd = cur_dir
+        break
+      else:
+        cur_dir = path.dirname(cur_dir)
 
     p = subprocess.Popen(
       cmd,
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE,
       shell=shell,
-      cwd=window.folders()[0]
+      cwd=cwd
     )
 
     _, stderrdata = p.communicate()
