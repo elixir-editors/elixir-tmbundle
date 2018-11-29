@@ -16,7 +16,7 @@ class MixFormatOnSave(sublime_plugin.EventListener):
     region = view.word(sel)
     scope = view.scope_name(region.b)
 
-    if scope.find('source.elixir') != -1:
+    if scope.find('source.elixir') != -1 and scope.find('HTML (EEx)') == -1:
       settings = sublime.load_settings('Elixir.sublime-settings')
 
       if settings.get('mix_format_on_save', False):
