@@ -28,6 +28,7 @@ class MixFormatOnSave(sublime_plugin.EventListener):
 class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     window = self.view.window()
+    settings = sublime.load_settings('Elixir.sublime-settings')
 
     # Hide the console window on Windows
     shell = False
@@ -38,16 +39,7 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
 
     file_name = self.view.file_name()
     cmd = ['mix', 'format', file_name]
-
-    cwd = window.folders()[0]
-    cur_dir = path.dirname(file_name)
-
-    while cwd != cur_dir:
-      if path.isfile(path.join(cur_dir, 'mix.exs')):
-        cwd = cur_dir
-        break
-      else:
-        cur_dir = path.dirname(cur_dir)
+    cwd = self.find_cwd(window, settings, file_name)
 
     p = subprocess.Popen(
       cmd,
@@ -73,5 +65,31 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
     else:
       window.run_command('hide_panel', {'panel': 'output.mix_format'})
       window.status_message('Formatting successful!')
+
+  def find_cwd(self, window, settings, file_name):
+    cur_dir = path.dirname(file_name)
+    cwd = os.path.expanduser("~")
+    for root_path in window.folders():
+      if cur_dir.startswith(root_path):
+        cwd = root_path
+        break
+
+    if settings.get('use_root_dir', False):
+      cwd
+    else:
+      while cwd != cur_dir:
+        if path.isfile(path.join(cur_dir, 'mix.exs')):
+          cwd = cur_dir
+          break
+        else:
+          cur_dir = path.dirname(cur_dir)
+          if cur_dir == "/":
+            cwd
+            break
+
+    return cwd
+
+
+
 
 
