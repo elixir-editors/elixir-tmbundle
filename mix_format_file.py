@@ -12,11 +12,9 @@ class MixFormatFileCommand(sublime_plugin.TextCommand):
 
 class MixFormatOnSave(sublime_plugin.EventListener):
   def on_post_save(self, view):
-    sel = view.sel()[0]
-    region = view.word(sel)
-    scope = view.scope_name(region.b)
+    syntax = view.settings().get('syntax')
 
-    if scope.find('source.elixir') != -1 and scope.find('HTML (EEx)') == -1:
+    if syntax.find('Elixir.tmLanguage') != -1:
       settings = sublime.load_settings('Elixir.sublime-settings')
 
       if settings.get('mix_format_on_save', False):
