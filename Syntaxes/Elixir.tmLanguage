@@ -1411,18 +1411,13 @@
 			<key>contentName</key>
 			<string>source.elixir</string>
 			<key>end</key>
-			<string>(\})</string>
+			<string>\}</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.section.embedded.end.elixir</string>
-				</dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>source.elixir</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -1438,40 +1433,37 @@
 					<string>$self</string>
 				</dict>
 			</array>
-			<key>repository</key>
-			<dict>
-				<key>nest_curly_and_self</key>
+		</dict>
+		<key>nest_curly_and_self</key>
+		<dict>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.elixir</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>begin</key>
-							<string>\{</string>
-							<key>captures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.scope.elixir</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>\}</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#nest_curly_and_self</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#nest_curly_and_self</string>
 						</dict>
 					</array>
 				</dict>
-			</dict>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
 		</dict>
 	</dict>
 	<key>scopeName</key>
