@@ -1,4 +1,6 @@
 {
+  "mix_format_command": "mix format",
+  "make_path_relative": false,
   "mix_format_on_save": false,
   "reload_after_mix_format": false,
   "use_root_dir": false
