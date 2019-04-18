@@ -36,8 +36,12 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
         path_separator = ';'
 
     file_name = self.view.file_name()
-    cmd = ['mix', 'format', file_name]
     cwd = self.find_cwd(window, settings, file_name)
+
+    if settings.get('make_path_relative', False):
+      file_name = self.make_path_relative(file_name, cwd)
+
+    cmd = settings.get('mix_format_command', 'mix format').split(' ') + [file_name]
 
     p = subprocess.Popen(
       cmd,
@@ -87,7 +91,8 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
 
     return cwd
 
-
+  def make_path_relative(self, file_name, cwd):
+    return file_name.replace(cwd, '.')
 
 
 
