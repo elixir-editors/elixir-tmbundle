@@ -506,6 +506,12 @@
 					<string>variable.language.elixir</string>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>\b[a-z_]\w*[!?]?(?=\.?\()</string>
+					<key>name</key>
+					<string>entity.name.function.elixir</string>
+				</dict>
+				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
