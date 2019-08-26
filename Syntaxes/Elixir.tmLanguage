@@ -50,19 +50,19 @@
 					<key>name</key>
 					<string>entity.name.type.class.elixir</string>
 				</dict>
-				<key>2</key>
+				<key>3</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.separator.method.elixir</string>
 				</dict>
-				<key>3</key>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.function.elixir</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([A-Z]\w+)(\.)([a-z_]\w*[!?]?)</string>
+			<string>([A-Z]\w+)(\s*)(\.)(\s*)([a-z_]\w*[!?]?)</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -529,7 +529,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[a-z_]\w*[!?]?(?=\.?\()</string>
+					<string>\b[a-z_]\w*[!?]?(?=\s*?\.?\s*?\()</string>
 					<key>name</key>
 					<string>entity.name.function.elixir</string>
 				</dict>
