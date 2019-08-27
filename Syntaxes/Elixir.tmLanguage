@@ -43,6 +43,34 @@
 			</array>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.class.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.method.elixir</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.elixir</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([A-Z]\w+)\s*(\.)\s*([a-z_]\w*[!?]?)</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b[a-z_]\w*[!?]?(?=\s*\.?\s*\()</string>
+			<key>name</key>
+			<string>entity.name.function.elixir</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\b(fn)\b(?=.*-&gt;)</string>
 			<key>beginCaptures</key>
