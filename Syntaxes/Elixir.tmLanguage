@@ -87,6 +87,23 @@
 			<string>(\:\w+)\s*(\.)\s*([_]?\w*[!?]?)</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.other.elixir</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.elixir</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\|\>)\s*([a-z_]\w*[!?]?)</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\b[a-z_]\w*[!?]?(?=\s*\.?\s*\()</string>
 			<key>name</key>
