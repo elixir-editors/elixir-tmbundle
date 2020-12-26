@@ -1351,7 +1351,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b_([\w]+[?!]?)</string>
+					<string>\b_([^_][\w]+[?!]?)</string>
 					<key>name</key>
 					<string>comment.unused.elixir</string>
 				</dict>
