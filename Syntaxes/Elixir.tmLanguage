@@ -325,7 +325,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\bdo:)|(\bdo\b)|(?=\s+(def|defmacro|defdelegate|defguard)\b)</string>
+					<string>(\bdo:)|(\bdo\b)|(?=\s+(def|defn|defmacro|defdelegate|defguard)\b)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -378,7 +378,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*(defp|defmacrop|defguardp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
+					<string>^\s*(defp|defnp|defmacrop|defguardp)\s+((?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?|===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?))((\()|\s*)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -563,7 +563,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defmacrop?|defguardp?|defdelegate|defexception|defoverridable|exit|after|rescue|catch|else|raise|reraise|throw|import|require|alias|use|quote|unquote|super|with)\b(?![?!:])</string>
+					<string>(?&lt;!\.)\b(do|end|case|bc|lc|for|if|cond|unless|try|receive|fn|defmodule|defp?|defprotocol|defimpl|defrecord|defstruct|defnp?|defmacrop?|defguardp?|defdelegate|defexception|defoverridable|exit|after|rescue|catch|else|raise|reraise|throw|import|require|alias|use|quote|unquote|super|with)\b(?![?!:])</string>
 					<key>name</key>
 					<string>keyword.control.elixir</string>
 				</dict>
