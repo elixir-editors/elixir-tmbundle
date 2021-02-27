@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/executor"
+TextMate::Executor.run(e_sh(ENV['TM_MIX'] || 'mix'), 'format', ENV['TM_FILEPATH'])
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@e</string>
+	<key>name</key>
+	<string>Format Code</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.elixir</string>
+	<key>uuid</key>
+	<string>C5F486D4-4EB3-434C-BCE5-6E741FF8893F</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
