@@ -6,6 +6,7 @@
 	<array>
 		<string>html.eex</string>
 		<string>html.leex</string>
+		<string>html.heex</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)
