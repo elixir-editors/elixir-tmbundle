@@ -472,6 +472,27 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>\s*~H"""</string>
+					<key>comment</key>
+					<string>Heex Sigil</string>
+					<key>end</key>
+					<string>\s*"""</string>
+					<key>name</key>
+					<string>sigil.heex</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>text.elixir</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>text.html.basic</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>@(module|type)?doc (~[a-z])?"""</string>
 					<key>comment</key>
 					<string>@doc with heredocs is treated as documentation</string>
