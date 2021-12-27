@@ -474,7 +474,7 @@
 					<key>begin</key>
 					<string>\s*~H"""</string>
 					<key>comment</key>
-					<string>Heex Sigil</string>
+					<string>HEEx Sigil</string>
 					<key>end</key>
 					<string>\s*"""</string>
 					<key>name</key>
