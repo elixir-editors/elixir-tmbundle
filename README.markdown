@@ -7,6 +7,10 @@ A **TextMate / Sublime Text Bundle** for the [**Elixir**](http://github.com/elix
 
 It provides syntax highlighting, snippets, and keybindings. Contributions and extensions are welcome!
 
+## Alternative: ElixirSyntax and ST4
+
+Note that the [ElixirSyntax](https://packagecontrol.io/packages/ElixirSyntax) package exists as an alternative providing a more up-to-date experience and is available for Sublime Text 4.
+
 ## Installation
 
 If you are using **TextMate 2** you can install from Preferences → Bundles. To install manually type the following commands in your shell:
