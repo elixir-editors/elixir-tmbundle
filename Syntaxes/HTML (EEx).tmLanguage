@@ -5,8 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>html.eex</string>
-		<string>html.leex</string>
-		<string>html.heex</string>
+		<string>.leex</string>
+		<string>.heex</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)
