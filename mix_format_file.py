@@ -79,15 +79,20 @@ class MixFormatFileWithoutSaveCommand(sublime_plugin.TextCommand):
     if settings.get('use_root_dir', False):
       cwd
     else:
-      while cwd != cur_dir:
+      cur_dir = path.abspath(cur_dir)
+      target_dir = path.normcase(path.abspath(cwd))
+      while path.normcase(cur_dir) != target_dir:
         if path.isfile(path.join(cur_dir, 'mix.exs')):
           cwd = cur_dir
           break
-        else:
-          cur_dir = path.dirname(cur_dir)
-          if cur_dir == "/":
-            cwd
-            break
+        parent_dir = path.dirname(cur_dir)
+        # Stop at the filesystem root. On Windows dirname("C:\\") returns
+        # "C:\\", so the old `cur_dir == "/"` test never matched and the walk
+        # ran forever whenever the home directory is not an ancestor of the
+        # file (for example a file under C:\\Users\\Public).
+        if parent_dir == cur_dir:
+          break
+        cur_dir = parent_dir
 
     return cwd
 
